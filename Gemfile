@@ -43,7 +43,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -71,4 +71,17 @@ group :test do
   gem "webdrivers"
 end
 
+#Adding ByeBug 
 gem "byebug"
+
+#Adding ActiveAdmin Dependencies
+gem 'activeadmin', '~> 2.14'
+
+# Plus integrations with:
+gem 'devise'
+gem 'cancancan'
+gem 'draper'
+gem 'pundit'
+
+#Add Arcitc Theme
+gem 'arctic_admin'
