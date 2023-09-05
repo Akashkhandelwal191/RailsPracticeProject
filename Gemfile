@@ -85,3 +85,14 @@ gem 'pundit'
 
 #Add Arcitc Theme
 gem 'arctic_admin'
+
+
+#Adding Bootstrap 
+gem "bootstrap"
+
+#Adding Country Select Gem
+gem 'country-select'
+
+
+#Adding dotenv-rails gem
+gem "dotenv-rails", groups: [:development, :test]
