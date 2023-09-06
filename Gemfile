@@ -96,3 +96,5 @@ gem 'country-select'
 
 #Adding dotenv-rails gem
 gem "dotenv-rails", groups: [:development, :test]
+
+

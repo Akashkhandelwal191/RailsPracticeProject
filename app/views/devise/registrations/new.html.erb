@@ -1,88 +1,54 @@
-<h2>Sign up</h2>
+<div class="main-body">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="container border border-2 d-flex justify-content-center w-25  p-5 commonshadow">
+
+   <div class="d-felx flex-column">
+       
+       <h2 style="text-align: center;">Sign up</h2>
+
+       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+
+       <div class="mb-3">
+         <%= f.label :first_name,class:"form-label" %><br />
+         <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name",class:"form-control"%> 
+       </div>
+
+       <div class="mb-3">
+          <%= f.label :last_name,class:"form-label"%><br />
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name",class:"form-control"%> 
+       </div>
   
   
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
-     <% resource.errors.full_messages_for(:username).each do |message| %>
-      <div class="error"><%= message %></div>
-    <% end %> 
-  </div>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
-    <% resource.errors.full_messages_for(:first_name).each do |message| %>
-      <div class="error"><%= message %></div>
-    <% end %> 
-  </div>
+       <div class="mb-3">
+         <%= f.label :email,class:"form-label" %><br />
+         <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control" %>
+      </div>
 
-   <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
-    <% resource.errors.full_messages_for(:last_name).each do |message| %>
-      <div class="error"><%= message %></div>
-    <% end %> 
-  </div>
-  
-   <div class="mt-2">
-     <%= f.label :Gender%>
-     <div style="font-size: 15px;">  
-     <%= f.radio_button :gender, "male",autofocus:true %>
-     <%= f.label :Male, "Male" %>
-     <%= f.radio_button :gender, "female",autofocus:true%>
-     <%= f.label :Female, "Female"%>
-    </div>
-  </div>
+       <div class="mb-3">
+          <%= f.label :password,class:"form-label" %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password",class:"form-control" %>
+       </div>
 
-   <div class="field">
-    <%= f.label :mobile_number %><br />
-    <%= f.number_field :mobile_number, autofocus: true, autocomplete: "mobile_number" %>
-    <% resource.errors.full_messages_for(:mobile_number).each do |message| %>
-      <div class="error"><%= message %></div>
-    <% end %> 
-  </div>
+        <div class="mb-3">
+          <%= f.label :password_confirmation,class:"form-label" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"form-control"%>
+        </div>
 
-  <div class="">
-     <%= f.label :Upload_Your_Avatar %>
-     <%= f.file_field :user_avatar,autofocus:true%>
-     <% resource.errors.full_messages_for(:user_avatar).each do |message| %>
-      <div class="error"><%= message %></div>
-    <% end %>
-  </div>
+        <div class="actions" style="text-align:center;">
+          <%= f.submit "Sign up",class:"btn btn-primary" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    <% resource.errors.full_messages_for(:email).each do |message| %>
-      <div class="error"><%= message %></div>
-    <% end %>
-  </div>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% resource.errors.full_messages_for(:password).each do |message| %>
-      <div class="error"><%= message %></div>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    <% resource.errors.full_messages_for(:password_confirmation).each do |message| %>
-      <div class="error"><%= message %></div>
-    <% end %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+       <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>
+</div>
+</div>
