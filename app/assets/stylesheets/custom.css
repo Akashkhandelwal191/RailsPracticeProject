@@ -26,3 +26,13 @@
     z-index: 1;
 
 }
+
+.img-size
+{
+    width: 150px;
+}
+
+.dlink{
+     text-decoration: none;
+     color: white;
+}

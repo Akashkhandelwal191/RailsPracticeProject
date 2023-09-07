@@ -1,95 +1,99 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="main-body">
+  <br/>
+  <div class="container border border-2 d-flex justify-content-center w-50  p-3 commonshadow">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+   <div class="d-felx flex-column">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <h2 style="text-align: center;">Edit Your Details </h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put} )  do |f| %>
+
+      <%= render "devise/shared/error_messages", resource: resource %>
+ 
+  <div class="row">
+  <div class="col-md-6">
+    <%= f.label :email,class:"form-label"%><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="col-md-6">
+    <%= f.label :password,class:"form-label"%><br />
+    <%= f.password_field :password, autocomplete: "new-password",class:"form-control",placeholder: "Leave Blank If you don't want to change your password" %>
     <% if @minimum_password_length %>
-      <br />
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  <div class="row mb-2">
+
+  <div class="col-md-6">
+    <%= f.label :password_confirmation,class:"form-label" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"form-control",placeholder:"Enter your confirm password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
-     <% resource.errors.full_messages_for(:username).each do |message| %>
-      <div class="error"><%= message %></div>
-    <% end %> 
-  </div>
-
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
-    <% resource.errors.full_messages_for(:first_name).each do |message| %>
-      <div class="error"><%= message %></div>
-    <% end %> 
-  </div>
-
-   <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
-    <% resource.errors.full_messages_for(:last_name).each do |message| %>
-      <div class="error"><%= message %></div>
-    <% end %> 
-  </div>
-  
-   <div class="mt-2">
-     <%= f.label :Gender%>
-     <div style="font-size: 15px;">  
-     <%= f.radio_button :gender, "male",autofocus:true %>
-     <%= f.label :Male, "Male" %>
-     <%= f.radio_button :gender, "female",autofocus:true%>
-     <%= f.label :Female, "Female"%>
-    </div>
-  </div>
-
-   <div class="field">
-    <%= f.label :mobile_number %><br />
-    <%= f.number_field :mobile_number, autofocus: true, autocomplete: "mobile_number" %>
-    <% resource.errors.full_messages_for(:mobile_number).each do |message| %>
-      <div class="error"><%= message %></div>
-    <% end %> 
-  </div>
-
-  <div class="">
-     <%= f.label :Upload_Your_Avatar %>
-     <%= f.file_field :user_avatar,autofocus:true%>
-     <% resource.errors.full_messages_for(:user_avatar).each do |message| %>
-      <div class="error"><%= message %></div>
+  <div class="col-md-6">
+    <%= f.label :current_password,class:"form-label" %><i>*</i>
+    <%= f.password_field :current_password, autocomplete: "current-password",class:"form-control",placeholder:"We need your current password for confirm your changes" %>
+    <% resource.errors.full_messages_for(:current_password).each do |message| %>
+      <%byebug%>
+      <div><%= message %></div>
     <% end %>
   </div>
 
-
-
-  <div class="actions">
-    <%= f.submit "Update" %>
   </div>
+
+  <div class="row mt-3">
+  <div class="col-md-6">
+    <%= f.label :first_name,class:"form-label" %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name",class:"form-control",placeholder:"Enter Your First Name"%>
+  </div>
+
+   <div class="col-md-6">
+    <%= f.label :last_name,class:"form-label" %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name",class:"form-control",placeholder:"Enter Your Last Name" %> 
+   </div>
+  </div>
+  
+   <div class="mt-3">
+     <%= f.label :Gender,class:"form-check-label"%>
+     <div style="font-size: 15px;">  
+     <%= f.radio_button :gender, "male",autofocus:true,class:"form-check-input" %>
+     <%= f.label :Male, "Male",class:"form-check-label" %>
+     &nbsp;
+     <%= f.radio_button :gender, "female",autofocus:true,class:"form-check-input"%>
+     <%= f.label :Female, "Female",class:"form-check-label"%>
+    </div>
+  </div>
+
+   <div class="row mt-2">
+   <div class="col-md-6">
+    <%= f.label :mobile_number,class:"form-label" %><br />
+    <%= f.number_field :mobile_number, autofocus: true, autocomplete: "mobile_number",class:"form-control",placeholder:"Enter your mobile number" %>
+   
+  </div>
+
+  <div class="col-md-6">
+     <%= f.label :Upload_Your_Avatar,class:"form-label" %>
+     <%= f.file_field :user_avatar,autofocus:true,class:"form-control",placeholder:"Enter Your Avatar"%>
+  </div>
+  </div>
+
+
+
+  <div class="actions mt-3" style="text-align: center;">
+    <%= f.submit "Update",class:"btn btn-primary p-2" %>
+  </div>
+
 <% end %>
 
-<h3>Cancel my account</h3>
 
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back ,class:"btn btn-success"%>
+</div>
+</div>
+</div>
