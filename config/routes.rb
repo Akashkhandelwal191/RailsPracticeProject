@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'wish_lists/index'
+  get 'wish_lists/show'
+  resources :reviews
+  resources :products
+  resources :categories
   
   root "homes#index"
  

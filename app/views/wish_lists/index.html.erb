@@ -1,0 +1,36 @@
+<div class="container">
+ 
+  <h1>WishList</h1>
+  <% if @wish_products.present? %>
+
+  <% @wish_products.each do |p| %>
+  <div class="card mb-3 w-100">
+  <div class="row g-0">
+    <div class="col-md-4">
+       <% if p.product_images.present? %>
+           <% p.product_images.each do |img| %>
+           <%= image_tag url_for(img),class:"img-fluid rounded-start" %>
+           <%end%>
+        <%else%>
+          <img src="https://bubbleerp.sysfosolutions.com/img/default-pro.jpg" alt="" class="img-fluid rounded-start">
+
+       <%end%>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= p.product_name %></h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%end%>
+ 
+  <% else %>
+  
+  <p>Your WishList is Empty</p>
+ 
+  <%end%>
+</div>

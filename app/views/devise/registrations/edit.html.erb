@@ -40,7 +40,6 @@
     <%= f.label :current_password,class:"form-label" %><i>*</i>
     <%= f.password_field :current_password, autocomplete: "current-password",class:"form-control",placeholder:"We need your current password for confirm your changes" %>
     <% resource.errors.full_messages_for(:current_password).each do |message| %>
-      <%byebug%>
       <div><%= message %></div>
     <% end %>
   </div>
