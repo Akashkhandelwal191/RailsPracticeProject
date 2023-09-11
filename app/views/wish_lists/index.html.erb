@@ -1,15 +1,19 @@
-<div class="container">
- 
-  <h1>WishList</h1>
+<div class="main-body wish">
+<div class="border border-2 cnavbar">
+  <h1 style="text-align: center;">Your WishList</h1>
+</div>
+<br/>
+<div class="container mt-5 d-flex justify-content-center flex-column">
+
   <% if @wish_products.present? %>
 
   <% @wish_products.each do |p| %>
-  <div class="card mb-3 w-100">
+  <div class="card mb-3 w-100 bstart commonshadow">
   <div class="row g-0">
     <div class="col-md-4">
        <% if p.product_images.present? %>
            <% p.product_images.each do |img| %>
-           <%= image_tag url_for(img),class:"img-fluid rounded-start" %>
+           <%= image_tag url_for(img),class:"img-fluid rounded-start img-size2" %>
            <%end%>
         <%else%>
           <img src="https://bubbleerp.sysfosolutions.com/img/default-pro.jpg" alt="" class="img-fluid rounded-start">
@@ -19,8 +23,17 @@
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title"><%= p.product_name %></h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><%= p.product_description%></p>
+        <p class="card-text">Price: Rs <%= p.product_price %></p>
         <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        <div class="d-flex justify-content-end p-3 bend">
+
+              <button class="btn btn-secondary">Buy Now</button>
+              <button class="btn btn-info ms-1">Add to Cart</button>
+
+              <%= button_to "Remove From Wishlist",wish_list_path(p.id), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete,class:"btn btn-danger ms-1" %>
+
+        </div>
       </div>
     </div>
   </div>
@@ -30,7 +43,19 @@
  
   <% else %>
   
-  <p>Your WishList is Empty</p>
+    <div class="border border-2 emptycart" style="text-align:center; margin: auto;">
+      <img src="https://cdni.iconscout.com/illustration/premium/thumb/wishlist-5171457-4320894.png",class="img-fluid" style="width: 300px;">
+      <h3>Your Wishlist is currently empty </h3>
+      <p style="color:#495057;">Before Proceed to checkout,you must add some products on your cart.You willl find a lot of interesting products on our "Shop" page. </p>
+
+      <div class="d-flex justify-content-center mt-2">
+       <a class="btn btn-success" href="/"><i class="bi bi-cart-fill"></i> Return to Shop Page</a>
+      </div>
+
+    </div>
+
  
   <%end%>
+</div>
+
 </div>

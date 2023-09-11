@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  get 'wish_lists/index'
-  get 'wish_lists/show'
+  resources :carts
+  # get 'wish_lists/index'
+  # get 'wish_lists/show'
+
+  resources :wish_lists
   resources :reviews
   resources :products
   resources :categories

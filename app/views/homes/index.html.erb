@@ -25,8 +25,8 @@
             <li><a class="dropdown-item" href="/homes/show"><i class="bi bi-person-circle"></i> &nbsp; My Profile</a> </li>
             <li><a class="dropdown-item" href="#"><i class="bi bi-mailbox2"></i>
              &nbsp; Orders</a></li>
-            <li><a class="dropdown-item" href="/wish_lists/index"><i class="bi bi-suit-heart-fill"></i>
-             &nbsp; Wishlist</a></li>
+            <li><a class="dropdown-item" href="/wish_lists"><i class="bi bi-suit-heart-fill"></i>
+             &nbsp; Wishlist(<%= count_wish_list_products%>)</a></li>
             <li><hr class="dropdown-divider"></li>
 
             <li><a data-turbo-method="delete" class="dropdown-item" href="/users/sign_out"><i class="bi bi-power"></i>&nbsp; Logout</a></li>
@@ -49,10 +49,36 @@
           </ul>
         </li>
         <li class="nav-item ms-5">
-          <a class="nav-link fs-6"><i class="bi bi-cart4"></i> Cart</a>
+          <a class="nav-link fs-6" href="/carts"><i class="bi bi-cart4"></i> Cart</a>
         </li>
       </ul>
       
     </div>
   </div>
 </nav>
+
+<!-- Start Section For Category -->
+<div class="container-fluid" style="background-color: white;">
+<div class="items">
+               <% @categories.each do |category| %>
+                <div class="d-flex align-items-center flex-column">
+                   <h6 style="text-align: center;"><%= category.category_name%></h6>
+                    <img data-lazy="https://rukminim1.flixcart.com/flap/64/64/image/69c6589653afdb9a.png?q=100">
+                </div>
+               <%end%> 
+</div>
+</div>
+<!-- End Section For Category -->
+
+
+
+<!-- Start Section For Product  -->
+<div class="container-fluid">
+
+    <div>
+  
+
+   </div> 
+
+</div>
+ <!-- End Section For Product -->

@@ -1,3 +1,7 @@
+body{
+    background-color: whitesmoke;
+}
+
 .my_img_size{
     height:250px;
     width: 200px;
@@ -13,6 +17,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     
 }
 
@@ -27,12 +32,108 @@
 
 }
 
+.card{
+
+   z-index:12;
+   opacity: 1;
+   border:none;
+   outline: none;
+/*   height: 320px;*/
+}
+
 .img-size
 {
     width: 150px;
 }
 
+.img-size2
+{
+/*    height: 320px;*/
+/*    width: 400px;*/
+}
+
 .dlink{
      text-decoration: none;
      color: white;
+}
+
+.bstart{
+
+     position: relative;
+}
+
+.bend{
+
+   position: absolute;
+   bottom: 0px;
+   left: 680px;
+}
+
+.wish{
+    overflow-x: hidden;
+}
+
+.cnavbar{
+     overflow: hidden;
+     position: sticky;
+     top: 0;
+     width:100%;
+     z-index: 20;
+     background-color: blue;
+     color:white;
+     border: none;
+     outline: none;
+     border-radius: 2px;
+     opacity: 0.6;
+}
+
+
+.items{
+  width:80%;
+  margin:0px auto;
+  margin-top: 10px;
+}
+.slick-slide{
+  margin:20px;
+}
+.slick-slide img{
+  border: 0px solid #fff;
+}
+
+
+.slick-arrow{
+/*    color:black !important;*/
+    background-color: black !important;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.cartbody{
+  
+    height: 100vh;
+    width: 100vw;
+    background-image: url("https://img.freepik.com/premium-vector/woman-applying-voucher-discount-online-shopping_701961-7853.jpg?w=2000");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+}
+
+.cartcss{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.emptycart{
+    height: 500px;
+    width: 650px;
+    padding: 10px;
+    background-color: white;
+    border:none;
+    outline: none;
+    border-radius: 10px;
 }

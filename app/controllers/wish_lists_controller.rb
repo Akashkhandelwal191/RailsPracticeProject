@@ -9,6 +9,12 @@ class WishListsController < ApplicationController
     end
   end
 
-  def show
+  
+  
+  def destroy
+      current_user.wish_list.products.delete(params[:id])
+      
+      redirect_to wish_lists_path, status: :see_other
   end
+
 end
