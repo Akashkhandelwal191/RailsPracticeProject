@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_11_075050) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_12_101424) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -105,6 +105,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_11_075050) do
   create_table "products_wish_lists", id: false, force: :cascade do |t|
     t.integer "product_id", null: false
     t.integer "wish_list_id", null: false
+    t.index ["product_id", "wish_list_id"], name: "by_product_and_wish_list", unique: true
   end
 
   create_table "reviews", force: :cascade do |t|

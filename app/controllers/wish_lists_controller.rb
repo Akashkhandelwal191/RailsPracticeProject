@@ -1,5 +1,7 @@
 class WishListsController < ApplicationController
   
+  before_action :authenticate_user! 
+
   def index
     # @wish_products = WishList.find_by(user_id:current_user.id).products
     if current_user.wish_list.present?
@@ -9,7 +11,16 @@ class WishListsController < ApplicationController
     end
   end
 
-  
+  def additem 
+      @product_id = params[:id]
+
+      if current_user.wish_list.products.find_by(id:@product_id).present?
+          render json: {alreadyAdded: true}
+      else 
+           current_user.wish_list.products << Product.find(@product_id)
+            render json: {alreadyAdded: false}
+      end
+  end
   
   def destroy
       current_user.wish_list.products.delete(params[:id])

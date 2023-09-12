@@ -57,13 +57,19 @@
   </div>
 </nav>
 
+<div id="custom-toast">
+   <p>Custom Toast</p>
+</div>
+
 <!-- Start Section For Category -->
 <div class="container-fluid" style="background-color: white;">
 <div class="items">
                <% @categories.each do |category| %>
                 <div class="d-flex align-items-center flex-column">
                    <h6 style="text-align: center;"><%= category.category_name%></h6>
-                    <img data-lazy="https://rukminim1.flixcart.com/flap/64/64/image/69c6589653afdb9a.png?q=100">
+                     <% if category.category_image.present? %>
+                     <%= image_tag category.category_image %>
+                     <%end%>
                 </div>
                <%end%> 
 </div>
@@ -73,12 +79,39 @@
 
 
 <!-- Start Section For Product  -->
-<div class="container-fluid">
+<div class="container-fluid 
+">
 
-    <div>
   
+  
+        <% @categories.each do |category| %>
+        <div class="mt-4 p-2" style="background-color: white;">
+        <h3><%= category.category_name %> </h3>
+        <div class="multiple-items">
+           <% category.products.each do |product| %>
+             <div class="card border border-1" style="width: 12rem;">
+               <div class="d-flex justify-content-end p-2">
+                <a  href='javascript:;' class='additemtowish' data-id="<%= product.id%>">
+                  <i class="bi bi-heart-fill" style="font-size: 20px;color:red"></i>
+                </a>
+                <span id="wishlist-err-<%= product.id %>" style="display: none;">Error</span>
+               </div>
+               <% if product.product_images.present? %>
+                  <%= image_tag product.product_images.first,class:"card-img-top img-fluid productsliderimg"%>
+               <%else%>
+                   <img src="..." class="card-img-top" alt="...">
+               <%end%>
+               <div class="card-body" style="text-align: center;">
+               <h5 class="card-title"><%= product.product_name %></h5>
+               <h5 class="card-title">Starting From ₹ <%= product.product_price %></h5>
+               </div>
+              </div>
+           <%end%>
+        </div>
+       </div>
+        <%end%>
 
-   </div> 
+   
 
 </div>
  <!-- End Section For Product -->

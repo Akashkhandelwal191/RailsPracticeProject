@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :carts
   # get 'wish_lists/index'
   # get 'wish_lists/show'
+  get 'wish_lists/:id/additem'=> 'wish_lists#additem',as: :additem
 
   resources :wish_lists
   resources :reviews
