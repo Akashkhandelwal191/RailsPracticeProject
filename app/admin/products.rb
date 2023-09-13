@@ -61,5 +61,11 @@ ActiveAdmin.register Product do
     f.actions
   end
   
+
+  # controller do
+  #   def update
+  #     debugger
+  #   end
+  # end
   
 end

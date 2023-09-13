@@ -91,20 +91,30 @@
            <% category.products.each do |product| %>
              <div class="card border border-1" style="width: 12rem;">
                <div class="d-flex justify-content-end p-2">
-                <a  href='javascript:;' class='additemtowish' data-id="<%= product.id%>">
-                  <i class="bi bi-heart-fill" style="font-size: 20px;color:red"></i>
+                <a  href='javascript:void(0);' class='additemtowish' data-id="<%= product.id%>">
+                  <!-- <i class="bi bi-heart-fill" style="font-size: 20px;color:red"></i> -->
+                  <i class="bi bi-suit-heart ticon"></i>
                 </a>
-                <span id="wishlist-err-<%= product.id %>" style="display: none;">Error</span>
                </div>
+               <a href="products/<%=product.id%>" class="styleanchor">
                <% if product.product_images.present? %>
                   <%= image_tag product.product_images.first,class:"card-img-top img-fluid productsliderimg"%>
                <%else%>
                    <img src="..." class="card-img-top" alt="...">
                <%end%>
                <div class="card-body" style="text-align: center;">
-               <h5 class="card-title"><%= product.product_name %></h5>
-               <h5 class="card-title">Starting From ₹ <%= product.product_price %></h5>
+               <h5 class="card-title"><%= truncate(product.product_name) %></h5>
+                <div>
+                 <span>
+                   <span class="card-text fs-5">₹<%= format_number(calculateoffer(product.product_price,product.offer)) %></span>
+                    &nbsp;
+                   <del><%= format_number(product.product_price)%></del>
+                   &nbsp;
+                   <span class="fs-6" style="color:green"><%= product.offer%>% off </span>
+                 </span>
+                 </div>
                </div>
+               </a>
               </div>
            <%end%>
         </div>

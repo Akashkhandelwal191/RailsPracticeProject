@@ -45,6 +45,7 @@ $(document).ready(function(){
 
     $('.additemtowish').each(function(e) {
       $(this).click(function() { 
+          var d1 = $(this)
           var d = $(this).data("id")
           $.ajax({
             url: `/wish_lists/${d}/additem`,
@@ -53,23 +54,47 @@ $(document).ready(function(){
               var wishlistError = $('#custom-toast')
               wishlistError.show()
               if (res.alreadyAdded)
-              {
+              {   
+                  wishlistError.css("background-color", "red");
                   wishlistError.html('Already WishListed')
+                  $.ajax({
+                        
+                      url:`/wish_lists/${d}`,
+                      method:"DELETE",
+                      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+                      success: function(res){
+
+                           wishlistError.html('Remove from your wishlist')
+                           $(d1).children('i').removeClass('bi-heart-fill')
+                           $(d1).children('i').addClass('bi-suit-heart')
+                      }
+
+                  })
+
               }
               else{
+
                     wishlistError.html('Added to your wishlist')
+                    $(d1).children('i').removeClass('bi-suit-heart')
+                    $(d1).children('i').addClass('bi-heart-fill')
+                    $(d1).children('i').css("color","red")
+                    // $(this).children[0].classList.remove('bi-suit-heart')
+                    // $(this).children[0].classList.add('bi-heart-fill')
+                    // $(this).children[0].css("color","red")
+
               } 
               
               setTimeout(function(){
                  wishlistError.html("")
                  wishlistError.hide()
-                 location.reload(true);
+                 // location.reload(true);
               },2000)
             },
             error: function(res){
                 var wishlistError = $('#custom-toast')
                 wishlistError.show()
-                wishlistError.html('You need to sign in or sign up')
+                wishlistError.css("background-color", "red");
+                wishlistError.html('You need to sign in or sign up before continuing')
                  setTimeout(function(){
                  wishlistError.html("")
                  wishlistError.hide()
