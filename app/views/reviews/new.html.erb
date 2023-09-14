@@ -1,9 +1,21 @@
-<h1>New review</h1>
+<div class="container border border-2 p-3">
 
-<%= render "form", review: @review %>
+<%= form_with(model: [current_user, @review], url: product_reviews_path(@product)) do |form| %>
+  
+  <div class="mt-2">
+  <%= form.label :description ,class:"form-label"%>
+  <%= form.text_area :description,class:"form-control" %>
+ </div>
+  
+  <div class="mt-2">
+  <%= form.label :rating,class:"form-label" %>
+  <%= form.number_field :rating,in:1..5,class:"form-control",placeholder:"Enter range between 1 to 5" %>
+  </div>
+  
+  <div class="mt-2">
+  <%= form.submit 'Submit Review',class:"btn btn-success" %>
+  </div>
 
-<br>
+<% end %>
 
-<div>
-  <%= link_to "Back to reviews", reviews_path %>
 </div>

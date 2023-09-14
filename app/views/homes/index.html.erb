@@ -11,8 +11,6 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
 
-   
-
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
 
           <% if user_signed_in? %>
@@ -57,34 +55,30 @@
   </div>
 </nav>
 
+<!-- start section showing custom toast -->
 <div id="custom-toast">
    <p>Custom Toast</p>
 </div>
+<!-- End section showing custom toast -->
 
 <!-- Start Section For Category -->
 <div class="container-fluid" style="background-color: white;">
 <div class="items">
-               <% @categories.each do |category| %>
-                <div class="d-flex align-items-center flex-column">
-                   <h6 style="text-align: center;"><%= category.category_name%></h6>
-                     <% if category.category_image.present? %>
-                     <%= image_tag category.category_image %>
-                     <%end%>
-                </div>
-               <%end%> 
+   <% @categories.each do |category| %>
+      <div class="d-flex align-items-center flex-column">
+      <h6 style="text-align: center;"><%= category.category_name%></h6>
+      <% if category.category_image.present? %>
+         <%= image_tag category.category_image %>
+      <%end%>
+      </div>
+   <%end%> 
 </div>
 </div>
 <!-- End Section For Category -->
 
-
-
 <!-- Start Section For Product  -->
-<div class="container-fluid 
-">
-
-  
-  
-        <% @categories.each do |category| %>
+<div class="container-fluid">
+    <% @categories.each do |category| %>
         <div class="mt-4 p-2" style="background-color: white;">
         <h3><%= category.category_name %> </h3>
         <div class="multiple-items">
@@ -93,7 +87,7 @@
                <div class="d-flex justify-content-end p-2">
                 <a  href='javascript:void(0);' class='additemtowish' data-id="<%= product.id%>">
                   <!-- <i class="bi bi-heart-fill" style="font-size: 20px;color:red"></i> -->
-                  <i class="bi bi-suit-heart ticon"></i>
+                  <i class="bi bi-suit-heart ticon" id="product<%= product.id %>"></i>
                 </a>
                </div>
                <a href="products/<%=product.id%>" class="styleanchor">
@@ -119,9 +113,24 @@
            <%end%>
         </div>
        </div>
-        <%end%>
-
-   
-
+    <%end%> 
 </div>
- <!-- End Section For Product -->
+<!-- End Section For Product -->
+
+<!-- Start Section Of Javascript For WishList -->
+<% if user_signed_in? %>
+   <% @product_ids = current_user.wish_list.products.ids %>
+   <script>
+      var ids = <%= @product_ids %>
+      ids.forEach(function(value)
+      {  
+          let a = document.getElementById(`product${value}`)
+          a.classList.remove("bi-suit-heart")
+          a.classList.add("bi-heart-fill")
+          a.style.color = "red"
+        
+      })
+    </script>   
+<% end %>
+<!-- End Section Of Javascript For WishList -->
+ 

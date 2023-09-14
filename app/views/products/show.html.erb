@@ -1,6 +1,7 @@
+<!-- Start Section Of Navbar -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand ms-5" href="#">Let's Shop</a>
+    <a class="navbar-brand ms-5" href="/">Let's Shop</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,10 +12,7 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
 
-   
-
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
-
+         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
           <% if user_signed_in? %>
             <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -56,21 +54,22 @@
     </div>
   </div>
 </nav>
+<!-- End Section Of Navbar -->
 
-
+<!-- Start Section Of Custom Toast -->
 <div id="custom-toast">
    <p>Custom Toast</p>
 </div>
+<!-- End Section Of Custom Toast -->
 
-
-
+<!-- Start Section Of Product Page -->
 <div class="card mb-3 border border-2 mt-3" style="width: 100%;">
   <div class="row g-0">
     <div class="col-md-4">
         <div class="d-flex justify-content-end p-2">
                 <a  href='javascript:void(0)' class='additemtowish' data-id="<%= @product.id%>">
                   <!-- <i class="bi bi-heart-fill" style="font-size: 20px;color:red"></i> -->
-                  <i class="bi bi-suit-heart ticon"></i>
+                  <i class="bi bi-suit-heart ticon" id="product<%= @product.id %>"></i>
                 </a>
         </div>
         <div class="p-5" style="max-width: 350px;">
@@ -85,10 +84,16 @@
     <div class="col-md-8">
       <div class="card-body">
         <h3 class="card-title"><%= @product.product_name%></h3>
-        <span class="rating"> 3.9 <i class="bi bi-star-fill"></i></span>
+        <span class="rating">
+         <%if @product.reviews.present? %>
+           <%= avg_rating(@product.id) %>
+         <%else%>
+         <strong>3.9</strong>
+         <%end%> 
+         <i class="bi bi-star-fill"></i></span>
         <div class="mt-3">
         <div>
-           
+
           <span>
           <h6 style="color:green">Special Price</h6>  
           <span class="card-text fs-4">₹<%= format_number(calculateoffer(@product.product_price,@product.offer)) %></span>
@@ -102,10 +107,47 @@
         <div class="mt-3">
          <h6 class="card-text"><%= @product.product_description %></h6>
         </div>
+       </div>
+      <div class="mt-3">
+          <h2>Reviews(<%= @product.reviews.count %>)</h2>
+        <% if @product.reviews.present? %>
+          <% @product.reviews.each do |review| %>
+             <div class="mt-2 border border-2 p-2" style="outline:none; box-shadow: 5px 5px 5px whitesmoke;">
+             <span class="rating"><%= review.rating %> <i class="bi bi-star-fill"></i></span>
+             &nbsp;
+             <span style="font-family: monospace; font-weight:bold"><%= calculate_rating(review.rating) %></span>
+             <h6 class="mt-2" style="font-family: italic;"><%= review.description %></h6>
+            <p style="font-family: italic; font-weight: bolder;">By <%= review.user.first_name %> <%= review.user.last_name %></p>
+            </div>
+          <%end%>
+        <%else%>
+            <p style="color:darkcyan;">No Reviews Yet!!</p>
+        <%end%>
       </div>
+      <!--  <div class="mt-2">
+          <button class="btn btn-primary" id="add-review-trigger">Add Your Review For This Product </button>
+       </div> -->
+
+       <!-- <div class="border border-2 review-form mt-2" id="review-f">  -->
+        <%= link_to 'Add a Review', new_product_review_path(@product),class:"btn btn-primary mt-2" %>
+       <!-- </div> -->
       </div>
     </div>
   </div>
 </div>
+<!-- End Section Of Product Page -->
+
+
+<!-- Start Section Of Js -->
+<% if user_signed_in? %>  
+   <script>
+      var pid = <%= @product.id %>    
+      let b = document.getElementById(`product${pid}`)
+      b.classList.remove("bi-suit-heart")
+      b.classList.add("bi-heart-fill")
+      b.style.color = "red"
+    </script>   
+<% end %>
+<!-- End Section Of Js -->
 
 

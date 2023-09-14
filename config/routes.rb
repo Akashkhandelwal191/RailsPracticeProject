@@ -5,14 +5,19 @@ Rails.application.routes.draw do
   get 'wish_lists/:id/additem'=> 'wish_lists#additem',as: :additem
 
   resources :wish_lists
-  resources :reviews
-  resources :products
+  # resources :reviews
+  # resources :products
   resources :categories
   
   root "homes#index"
  
   get 'homes/index'
   get 'homes/show'
+
+  resources :products do
+    resources :reviews, only: [:new, :create]
+  end
+  
   devise_for :users, :controllers => {:registrations => "users/registrations"}
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

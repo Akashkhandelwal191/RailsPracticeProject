@@ -1,4 +1,5 @@
 
+
 $(document).ready(function(){
  
   $('.items').slick({
@@ -110,3 +111,19 @@ $(document).ready(function(){
       
     }) 
 })
+
+
+$(document).ready(function(){
+
+
+$('#add-review-trigger').click(function(){
+   
+     $('#review-f').toggleClass('review-form')
+});
+
+
+});
+
+
+
+
