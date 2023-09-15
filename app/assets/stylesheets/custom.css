@@ -1,5 +1,10 @@
 body{
     background-color: whitesmoke;
+    overflow-x: hidden;
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 .my_img_size{
@@ -7,9 +12,6 @@ body{
     width: 200px;
 }
 
-body{
-    overflow-x: hidden;
-}
 
 .main-body
 {   
@@ -201,4 +203,58 @@ body{
 
 .review-form{
   display: none;
+}
+
+/*#loader
+{
+    position: fixed;
+    width:100%;
+    height:100vh;
+    background:#f7f7f7 url("https://cdn.dribbble.com/users/801336/screenshots/6804899/google_loader_concept_physics.gif") no-repeat center;
+    background-size: contain;
+    z-index: 99999;
+}
+*/
+
+#backtotop {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  font-size: 50px;
+  cursor: pointer;
+  border-radius: 50%;
+  color: #0984e3;
+  z-index: 4545;
+  opacity: 0.8;
+/*  background-color: #ffffff;*/
+  display: none;
+}
+
+
+#backtotop:hover {
+  color: darkblue;
+}
+
+
+.name-h:hover{
+    color:blue;
+}
+
+.icon-shape {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.icon-sm {
+    width: 2rem;
+    height: 2rem;
+    
+}
+
+.cart-product-image{
+    object-fit: cover;
+    height: 198px;
 }

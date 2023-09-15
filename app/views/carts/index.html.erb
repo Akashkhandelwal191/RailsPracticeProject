@@ -1,19 +1,110 @@
-<div class="cartbody">
+<div class=""> 
+  
+   <% if @cart_products.present? %>
+       
+      <br/>
+      <br/>
+      <div class="container">
+         <div class="row">
+       
+          <div class="col-md-8 border border-2 p-2">
+            <% @cart_products.each do |p| %>
+              <div class="card mb-3" style="max-width: 100%;height: 200px;">
+                <div class="row g-0">
+                  <div class="col-md-4 border border-2">
+                    <% if p.product.product_images.present? %>
+                      <%= image_tag p.product.product_images.first,class:"img-fluid rounded-start cart-product-image"%>
+                    <%else%>
+                    <img src="https://nayemdevs.com/wp-content/uploads/2020/03/default-product-image.png" class="img-fluid rounded-start" alt="...">
+                    <% end %>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        <a href="products/<%= p.product.id %>" class="styleanchor name-h">
+                       <%= truncate(p.product.product_name) %>
+                        </a>
+                       </h5>
+                      <div>
+                          <span>
+                          <span class="card-text fs-4">₹<%= format_number(calculateoffer(p.total_price,p.product.offer)) %></span>
+                          &nbsp;
+                          <del><%= format_number(p.total_price)%></del>
+                          &nbsp;
+                          <span class="fs-6" style="color:green"><%= p.product.offer%>% off </span>
+                          </span>
 
-<div class="container cartcss">
 
-    
-    <div class="border border-2 emptycart" style="text-align:center;">
-      <img src="https://cdn3.iconfinder.com/data/icons/shopping-and-ecommerce-29/90/empty_cart-512.png",class="img-fluid" style="width: 300px;">
-      <h3>Your cart is currently empty </h3>
-      <p style="color:#495057;">Before Proceed to checkout,you must add some products on your cart.You willl find a lot of interesting products on our "Shop" page. </p>
+                       </div>
+                       
+                       <div class="">
+                          <div class="input-group w-auto mt-5">
+                                 
+                                 <a href="line_items_products/<%= p.id %>/decrement">
+                                 <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity"></a>
+                          
 
-      <div class="d-flex justify-content-center mt-2">
-       <a class="btn btn-success" href="/"><i class="bi bi-cart-fill"></i> Return to Shop Page</a>
+                                 <input type="number" step="1"  value="<%= p.quantity %>" name="quantity" class="quantity-field border-2 text-center w-25">
+
+                                   <a href="line_items_products/<%= p.id %>/increment">
+                                 <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm mx-1" data-field="quantity"></a>
+                           </div>
+                        </div>
+
+                      <div class="" style="position: absolute; bottom: 15px; right:10px">
+                        <a href="/carts/<%= p.id %>/remove_product_from_cart">
+                        <button class="btn btn-danger">Remove From Cart </button></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               </div>
+            <%end%>
+          </div>
+            
+          <div class="col-md-3 border border-2 ms-5 p-2" style="width: 320px; height: 400px; background-color: white; position: sticky; overflow: hidden;top:25px">
+             <div>
+               <h1>Price Details</h1>
+             </div>
+             <hr/>
+             <div class="d-flex justify-content-between">
+                <h6>Price</h6>
+                <h6>₹20,000</h6>
+             </div>
+             <div class="d-flex justify-content-between">
+                <h6>Discount</h6>
+                <h6>₹2000</h6>
+             </div>
+             <div class="d-flex justify-content-between">
+                <h6>Delivery Charge</h6>
+                <h6>₹200</h6>
+             </div>
+             <hr/>
+             <div class="d-flex justify-content-between">
+                <h6>Total</h6>
+                <h6>₹22,200</h6>
+             </div>
+             <hr/>
+          </div>
+
+         </div>
       </div>
 
-    </div>
+    <% else %>
+    <div class="container cartcss">
+        <div class="border border-2 emptycart" style="text-align:center;">
+          <img src="https://cdn3.iconfinder.com/data/icons/shopping-and-ecommerce-29/90/empty_cart-512.png",class="img-fluid" style="width: 300px;">
+          <h3>Your cart is currently empty </h3>
+          <p style="color:#495057;">Before Proceed to checkout,you must add some products on your cart.You willl find a lot of interesting products on our "Shop" page. </p>
 
-</div>
+          <div class="d-flex justify-content-center mt-2">
+           <a class="btn btn-success" href="/"><i class="bi bi-cart-fill"></i> Return to Shop Page</a>
+          </div>
+
+        </div>
+      </div>
+    <%end%>
+
+
 
 </div>

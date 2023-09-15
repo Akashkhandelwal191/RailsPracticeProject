@@ -1,0 +1,2 @@
+module LineItemsProductsHelper
+end

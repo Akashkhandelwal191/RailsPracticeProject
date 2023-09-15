@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_13_103417) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_15_055016) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -91,6 +91,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_13_103417) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "line_items_products", force: :cascade do |t|
+    t.integer "quantity"
+    t.float "total_price"
+    t.string "purchasable_type", null: false
+    t.integer "purchasable_id", null: false
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_line_items_products_on_product_id"
+    t.index ["purchasable_type", "purchasable_id"], name: "index_line_items_products_on_purchasable"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "product_name"
     t.text "product_description"
@@ -148,6 +160,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_13_103417) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addresses", "users"
   add_foreign_key "carts", "users"
+  add_foreign_key "line_items_products", "products"
   add_foreign_key "products", "categories"
   add_foreign_key "reviews", "products"
   add_foreign_key "reviews", "users"

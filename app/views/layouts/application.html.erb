@@ -24,6 +24,16 @@
 
   <body>
 
+    <div id="loader"> </div>
+
+     <i
+      id="backtotop"
+      class="bi bi-arrow-up-circle-fill"
+      data-bs-toggle="tooltip"
+      data-bs-placement="top"
+      title="Back To Top"
+    ></i>
+
     <%= yield %>
      <% if flash.any? %>
         <script type="text/javascript">

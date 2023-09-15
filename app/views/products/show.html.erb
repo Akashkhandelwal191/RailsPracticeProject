@@ -76,7 +76,9 @@
         <%= image_tag @product.product_images.first,class:"img-fluid"%>
         </div>
         <div class="d-flex justify-content-between p-3">
-            <button class="btn btn-success w-100 p-2"><i class="bi bi-cart-fill"></i> &nbsp; ADD TO CART</button>
+
+            <a href="/carts/<%= @product.id%>/add_product_to_cart" class="w-100 btn btn-success p-2" id="cart-product<%= @product.id %>">
+            <i class="bi bi-cart-fill"></i> &nbsp; ADD TO CART</a>
             &nbsp; &nbsp;
             <button class="btn btn-warning w-100 p-2"><i class="bi bi-lightning-charge-fill"></i> &nbsp; BUY NOW</button>   
         </div>
@@ -124,13 +126,8 @@
             <p style="color:darkcyan;">No Reviews Yet!!</p>
         <%end%>
       </div>
-      <!--  <div class="mt-2">
-          <button class="btn btn-primary" id="add-review-trigger">Add Your Review For This Product </button>
-       </div> -->
-
-       <!-- <div class="border border-2 review-form mt-2" id="review-f">  -->
-        <%= link_to 'Add a Review', new_product_review_path(@product),class:"btn btn-primary mt-2" %>
-       <!-- </div> -->
+       <button id="open-review-form" class="btn btn-primary mt-2">Add a Review</button>
+       <div id="review-form-container"></div>
       </div>
     </div>
   </div>
@@ -150,4 +147,33 @@
 <% end %>
 <!-- End Section Of Js -->
 
+<script>
+  // JavaScript to load the review form via AJAX
+  $(document).on('click', '#open-review-form', function () {
+    $.ajax({
+      url: '<%= new_product_review_path(@product) %>',
+      type: 'GET',
+      dataType: 'html',
+      success: function (data) {
+        $('#review-form-container').html(data);
+      },
+      error: function () {
+        alert('An error occurred while loading the review form.');
+      }
+    });
+  });
+</script>
 
+
+<% if user_signed_in? %>
+  <% if current_user.cart.line_items_products.find_by(product_id:@product.id).present? %>
+
+     <script>
+         var dd = <%= @product.id %>
+         var ee = document.getElementById(`cart-product${dd}`)
+         ee.innerHTML = `<i class="bi bi-cart-fill"></i> &nbsp; Go to Cart`
+         ee.href = "/carts"
+     </script>
+
+  <%end%>
+<%end%>

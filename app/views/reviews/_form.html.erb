@@ -1,40 +1,9 @@
-<div class="container p-2">
-<%= form_with(model: review) do |form| %>
-  <% if review.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+<%= form_with(model: [current_user, @review], url: product_reviews_path(@product), remote: true) do |form| %>
+  <%= form.label :description %>
+  <%= form.text_area :description %>
 
-      <ul>
-        <% review.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= form.label :rating %>
+  <%= form.number_field :rating %>
 
-  <div>
-    <%= form.label :rating, style: "display: block",class:"form-label"%>
-    <%= form.number_field :rating,class:"form-control", in: 1..5,placeholder:"Enter rating between 1 to 5" %>
-  </div>
-
-
-  <div>
-    <%= form.label :description, style: "display: block",class:"form-label"%>
-    <%= form.text_area :description,class:"form-control" %>
-  </div>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.label :product_id, style: "display: block" %>
-    <%= form.text_field :product_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= form.submit 'Submit Review' %>
 <% end %>
-</div>

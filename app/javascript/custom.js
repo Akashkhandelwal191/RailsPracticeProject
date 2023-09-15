@@ -1,4 +1,36 @@
 
+// var Preloader = document.getElementById("loader");
+// function myFunction() {
+
+//     Preloader.style.display = "none";
+
+// }
+
+// $(document).ready(function(){
+
+//    setTimeout(myFunction,2000)
+
+// });
+
+
+window.addEventListener("scroll", function () {
+  if (document.documentElement.scrollTop > 181) {
+
+    document.getElementById("backtotop").style.display = "block";
+  } else {
+    document.getElementById("backtotop").style.display = "none";
+  }
+});
+
+var topscroll = document.querySelector("#backtotop");
+topscroll.addEventListener("click", function () {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
+});
+
 
 $(document).ready(function(){
  

@@ -66,10 +66,11 @@
 <div class="items">
    <% @categories.each do |category| %>
       <div class="d-flex align-items-center flex-column">
+      <a href="#<%= category.category_name %>" style="text-decoration: none;color:black" class="d-flex align-items-center flex-column">
       <h6 style="text-align: center;"><%= category.category_name%></h6>
       <% if category.category_image.present? %>
          <%= image_tag category.category_image %>
-      <%end%>
+      <%end%></a>
       </div>
    <%end%> 
 </div>
@@ -80,7 +81,7 @@
 <div class="container-fluid">
     <% @categories.each do |category| %>
         <div class="mt-4 p-2" style="background-color: white;">
-        <h3><%= category.category_name %> </h3>
+        <h3 id="<%= category.category_name %>"><%= category.category_name %> </h3>
         <div class="multiple-items">
            <% category.products.each do |product| %>
              <div class="card border border-1" style="width: 12rem;">
