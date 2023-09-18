@@ -22,6 +22,7 @@ Rails.application.routes.draw do
  
   get 'homes/index'
   get 'homes/show'
+  get 'homes/search' 
 
   resources :products do
     resources :reviews, only: [:new, :create]

@@ -27,7 +27,7 @@
                        </h5>
                       <div>
                           <span>
-                          <span class="card-text fs-4">₹<%= format_number(calculateoffer(p.total_price,p.product.offer)) %></span>
+                          <span class="card-text fs-4">₹<%= format_number(p.discounted_price) %></span>
                           &nbsp;
                           <del><%= format_number(p.total_price)%></del>
                           &nbsp;
@@ -60,6 +60,9 @@
                 </div>
                </div>
             <%end%>
+            <div class="d-flex justify-content-end">
+            <button class="btn p-3" style="background-color: #FF6E31;color:white;border:none;border-radius: 0px;width: 250px;">Place Order</button>
+            </div>
           </div>
             
           <div class="col-md-3 border border-2 ms-5 p-2" style="width: 320px; height: 400px; background-color: white; position: sticky; overflow: hidden;top:25px">
@@ -69,11 +72,11 @@
              <hr/>
              <div class="d-flex justify-content-between">
                 <h6>Price</h6>
-                <h6>₹20,000</h6>
+                <h6><%= current_user.cart.total_price %></h6>
              </div>
              <div class="d-flex justify-content-between">
                 <h6>Discount</h6>
-                <h6>₹2000</h6>
+                <h6>-₹2000</h6>
              </div>
              <div class="d-flex justify-content-between">
                 <h6>Delivery Charge</h6>
@@ -81,8 +84,8 @@
              </div>
              <hr/>
              <div class="d-flex justify-content-between">
-                <h6>Total</h6>
-                <h6>₹22,200</h6>
+                <h6>Total Amount</h6>
+                <h6><%= current_user.cart.total_amount %></h6>
              </div>
              <hr/>
           </div>

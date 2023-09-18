@@ -1,16 +1,16 @@
 
-// var Preloader = document.getElementById("loader");
-// function myFunction() {
+var Preloader = document.getElementById("loader");
+function myFunction() {
 
-//     Preloader.style.display = "none";
+    Preloader.style.display = "none";
 
-// }
+}
 
-// $(document).ready(function(){
+$(document).ready(function(){
 
-//    setTimeout(myFunction,2000)
+   setTimeout(myFunction,2000)
 
-// });
+});
 
 
 window.addEventListener("scroll", function () {

@@ -3,6 +3,7 @@ class CreateLineItemsProducts < ActiveRecord::Migration[7.0]
     create_table :line_items_products do |t|
       t.integer :quantity
       t.float :total_price
+      t.float :discounted_price
       t.references :purchasable, polymorphic: true, null: false
       t.references :product, null: false, foreign_key: true
       t.timestamps

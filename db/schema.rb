@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_15_055016) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_18_061333) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -82,6 +82,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_15_055016) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "total_price"
+    t.float "total_amount"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
@@ -94,6 +96,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_15_055016) do
   create_table "line_items_products", force: :cascade do |t|
     t.integer "quantity"
     t.float "total_price"
+    t.float "discounted_price"
     t.string "purchasable_type", null: false
     t.integer "purchasable_id", null: false
     t.integer "product_id", null: false

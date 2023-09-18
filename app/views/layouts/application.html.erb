@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ecommerce</title>
+    <title>Let's Shop</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Favicon -->
+    <%= favicon_link_tag asset_path('icons2.png') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -15,16 +17,10 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-
-
-
-   
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>   
   </head>
 
   <body>
-
-    <div id="loader"> </div>
 
      <i
       id="backtotop"
@@ -34,7 +30,13 @@
       title="Back To Top"
     ></i>
 
+    <%= render 'layouts/navbar' %>
+
     <%= yield %>
+
+    <%= render 'layouts/footer' %>
+
+
      <% if flash.any? %>
         <script type="text/javascript">
         <% flash.each do |key, value| %>
@@ -46,7 +48,6 @@
 
 
   
-
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js">
   </script>
