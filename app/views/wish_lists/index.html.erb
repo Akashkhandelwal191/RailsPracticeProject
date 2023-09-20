@@ -1,3 +1,7 @@
+<!-- Start Section For Navbar -->
+<%= render 'layouts/navbar' %>
+<!-- End Section For Navbar -->
+
 <div class="main-body wish">
 <div class="border border-2 cnavbar">
   <h1 style="text-align: center;">Your WishList</h1>
@@ -11,6 +15,7 @@
   <div class="card mb-3 w-100 bstart commonshadow">
   <div class="row g-0">
     <div class="col-md-4">
+       <a href="/products/<%= p.id %>" class="row g-0 sp">
        <% if p.product_images.present? %>
            <% p.product_images.each do |img| %>
            <%= image_tag url_for(img),class:"img-fluid rounded-start img-size2" %>
@@ -19,17 +24,36 @@
           <img src="https://bubbleerp.sysfosolutions.com/img/default-pro.jpg" alt="" class="img-fluid rounded-start">
 
        <%end%>
+       </a>
     </div>
     <div class="col-md-8">
       <div class="card-body">
+        <a href="/products/<%= p.id %>" class="row g-0 sp">
         <h5 class="card-title"><%= p.product_name %></h5>
         <p class="card-text"><%= p.product_description%></p>
-        <p class="card-text">Price: Rs <%= p.product_price %></p>
-        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        <div>
+
+          <span>
+          <h6 style="color:green">Special Price</h6>  
+          <span class="card-text fs-4">₹<%= format_number(calculateoffer(p.product_price,p.offer)) %></span>
+          &nbsp;
+          <del><%= format_number(p.product_price)%></del>
+          &nbsp;
+          <span class="fs-6" style="color:green"><%= p.offer%>% off </span>
+          </span>
+
+        </div>
+       
+      
+        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p></a>
         <div class="d-flex justify-content-end p-3 bend">
 
               <button class="btn btn-secondary">Buy Now</button>
-              <button class="btn btn-info ms-1">Add to Cart</button>
+
+              <a href="/carts/<%= p.id%>/add_product_to_cart" class="btn btn-info ms-1">
+                  Add to Cart
+              </a>  
+             
 
               <%= button_to "Remove From Wishlist",wish_list_path(p.id), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete,class:"btn btn-danger ms-1" %>
 
@@ -40,6 +64,8 @@
 </div>
 
 <%end%>
+      <%= paginate @wish_products,theme: 'bootstrap-5',pagination_class:"pagination-md flex-wrap justify-content-center",
+                   nav_class: "d-inline-block",class:"w-50"%>
  
   <% else %>
   
@@ -59,3 +85,7 @@
 </div>
 
 </div>
+
+<!-- Start Section For Footer -->
+<%= render 'layouts/footer' %>
+<!-- End Section For Footer -->

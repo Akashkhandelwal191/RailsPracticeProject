@@ -84,6 +84,15 @@ html{
     overflow-x: hidden;
 }
 
+.navbar{
+
+/*    overflow: hidden;*/
+    position: sticky;
+    top:0;
+    width: 100%;
+    z-index: 20;
+}
+
 .cnavbar{
      overflow: hidden;
      position: sticky;
@@ -327,3 +336,10 @@ footer .footer-contact img{
     text-decoration: none;
     color:rgba(255,255,255,0.5);
 }
+
+
+input + div label {
+  padding: 10px;
+  cursor: pointer;
+}
+

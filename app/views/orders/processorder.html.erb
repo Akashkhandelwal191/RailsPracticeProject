@@ -1,0 +1,165 @@
+<%= render 'layouts/navbar' %>
+
+
+<div class="container">
+    <div class="row mt-3">
+       <div class="col-md-8 p-2">
+           <div class="border border-2 p-4" style="background-color:white;">
+                <h4><span class="digit">1</span>&nbsp;&nbsp;LOGIN</h4>
+                <div class="d-flex">
+                <h6><%= current_user.first_name%><%= current_user.last_name%>  </h6>
+                &nbsp; &nbsp;
+                <h6><%= current_user.mobile_number %> </h6>
+                </div>
+           </div>
+
+           <div class="border border-2 p-4 mt-2" style="background-color: white;position: relative;">
+               <h4 class="processorder-heading" id="select-address"><span class="digit">2</span>&nbsp;&nbsp;SELECT ADDRESS FOR DELIVER </h4>
+               <% if current_user.addresses.present? %>
+                    <% current_user.addresses.each do |address| %>
+                        <div class="border border-2 m-2 p-2 processorder" style="position: relative;">
+                            <div class="d-flex">
+                              <input type="radio" id="add-<%= address.id%>" name="address">
+                                <div class="ms-3">
+                                <label for="add-<%= address.id %>">
+                                <%= current_user.first_name%> <%= current_user.last_name%> &nbsp; <%= address.address_type %> &nbsp; <%= current_user.mobile_number %>
+                                 <p><%= address.area %>,<%= address.city %>,<%= address.state %>,<%= address.country%>,<%= address.postal_code%> </p>
+                                </label>
+                                </div>
+                            </div>                                 
+                        </div>
+                    <%end%>
+               <%end%>
+
+               <div id="spinner-border" class="spinner-border text-primary" role="status" style="position: absolute; top:50% ;left:50% ;display: none;">
+                    <span class="visually-hidden">Loading...</span>
+               </div>
+
+           </div>
+
+
+           <div class="border border-2 p-4 mt-2" style="background-color: white;">
+               <h4 id="order-summary"><span class="digit">3</span>&nbsp;&nbsp;ORDER SUMMARY </h4>
+               <div class="">
+                   <% @cart_products.each do |p| %>
+              <div class="card mb-3" style="max-width: 100%;height: 200px;">
+                <div class="row g-0">
+                  <div class="col-md-4 border border-2">
+                    <% if p.product.product_images.present? %>
+                      <%= image_tag p.product.product_images.first,class:"img-fluid rounded-start cart-product-image"%>
+                    <%else%>
+                    <img src="https://nayemdevs.com/wp-content/uploads/2020/03/default-product-image.png" class="img-fluid rounded-start" alt="...">
+                    <% end %>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        <a href="products/<%= p.product.id %>" class="styleanchor name-h">
+                       <%= truncate(p.product.product_name) %>
+                        </a>
+                       </h5>
+                      <div>
+                          <span>
+                          <span class="card-text fs-4">₹<%= format_number(p.discounted_price) %></span>
+                          &nbsp;
+                          <del><%= format_number(p.total_price)%></del>
+                          &nbsp;
+                          <span class="fs-6" style="color:green"><%= p.product.offer%>% off </span>
+                          </span>
+
+
+                       </div>
+                       
+                      <div class="mt-2">
+                        <h6>Total Quantity:<%= p.quantity %></h6>
+                      </div>
+
+                      <div class="" style="position: absolute; bottom: 15px; right:10px">
+                        <a href="/carts/<%= p.id %>/remove_product_from_cart">
+                        <button class="btn btn-danger">Remove</button></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               </div>
+            <%end%>
+               <hr/>
+               <div class="d-flex justify-content-end">
+                 <button class="btn btn-primary w-50 p-3">Proceed To Pay</button>
+               </div>
+                
+               </div>
+           </div>
+        </div>
+            
+          <div class="col-md-3 border border-2 ms-5 p-2" style="width: 320px; height: 400px; background-color: white; position: sticky; overflow: hidden;top:25px">
+             <div>
+               <h1>Price Details</h1>
+             </div>
+             <hr/>
+             <div class="d-flex justify-content-between">
+                <h6>Price</h6>
+                <h6><%= current_user.cart.total_price %></h6>
+             </div>
+             <div class="d-flex justify-content-between">
+                <h6>Discount</h6>
+                <h6>-₹2000</h6>
+             </div>
+             <div class="d-flex justify-content-between">
+                <h6>Delivery Charge</h6>
+                <h6>₹200</h6>
+             </div>
+             <hr/>
+             <div class="d-flex justify-content-between">
+                <h6>Total Amount</h6>
+                <h6><%= current_user.cart.total_amount %></h6>
+             </div>
+             <hr/>
+          </div>
+
+    </div>
+</div> 
+  
+ 
+
+
+
+<%= render 'layouts/footer' %>
+
+
+<script>
+ 
+ document.addEventListener("DOMContentLoaded", function() {
+    var radioInputs = document.querySelectorAll("input[type='radio']");
+    
+    radioInputs.forEach(function(radioInput) {
+        radioInput.addEventListener("change", function() {
+            if (this.checked) {
+                console.log(this.id)
+                let s = this.id
+                const myarray = s.split('-')
+                console.log(myarray[1])
+                document.getElementById('spinner-border').style.display="block";
+              
+                setTimeout(function(){
+
+                     document.getElementById('select-address').classList.remove("processorder-heading")
+                     document.getElementById("order-summary").scrollIntoView();
+         
+                     document.getElementById('order-summary').classList.add("processorder-heading")
+
+                     document.getElementById('spinner-border').style.display="none";
+
+                },2000)
+               
+
+                // this.parentElement.classList.add("prod");
+            } else {
+                // this.parentElement.classList.remove("prod");
+            }
+        });
+    });
+});
+
+
+</script>

@@ -1,4 +1,9 @@
 <div id="loader"> </div>
+
+<!-- Starting Section For Navbar -->
+<%= render 'layouts/navbar'%>
+<!-- End Section For Navbar -->
+
 <!-- start section showing custom toast -->
 <div id="custom-toast">
    <p>Custom Toast</p>
@@ -61,6 +66,10 @@
     <%end%> 
 </div>
 <!-- End Section For Product -->
+
+<!-- Start Section For Footer -->
+<%= render 'layouts/footer' %>
+ <!-- End Section For Footer -->
 
 <!-- Start Section Of Javascript For WishList -->
 <% if user_signed_in? %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_18_061333) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_20_062208) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -54,7 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_18_061333) do
   end
 
   create_table "addresses", force: :cascade do |t|
-    t.string "address_type"
+    t.integer "address_type"
     t.string "city"
     t.string "country"
     t.string "state"
@@ -104,6 +104,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_18_061333) do
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_line_items_products_on_product_id"
     t.index ["purchasable_type", "purchasable_id"], name: "index_line_items_products_on_purchasable"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "status"
+    t.float "total_amount"
+    t.integer "address_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_orders_on_address_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -164,6 +175,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_18_061333) do
   add_foreign_key "addresses", "users"
   add_foreign_key "carts", "users"
   add_foreign_key "line_items_products", "products"
+  add_foreign_key "orders", "addresses"
+  add_foreign_key "orders", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "reviews", "products"
   add_foreign_key "reviews", "users"

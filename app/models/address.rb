@@ -1,4 +1,4 @@
 class Address < ApplicationRecord
   belongs_to :user
-  validates :country,:state,:city,:area,:address_type,:postal_code,presence:true
+  enum :address_type, [:home,:work,:other],default: :home
 end

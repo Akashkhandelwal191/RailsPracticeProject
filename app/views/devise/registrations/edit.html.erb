@@ -70,19 +70,21 @@
   </div>
 
    <div class="row mt-2">
-   <div class="col-md-6">
+    <div class="col-md-6">
     <%= f.label :mobile_number,class:"form-label" %><br />
     <%= f.number_field :mobile_number, autofocus: true, autocomplete: "mobile_number",class:"form-control",placeholder:"Enter your mobile number" %>
    
-  </div>
+    </div>
 
-  <div class="col-md-6">
-     <%= f.label :Upload_Your_Avatar,class:"form-label" %>
-     <%= f.file_field :user_avatar,autofocus:true,class:"form-control",placeholder:"Enter Your Avatar"%>
-  </div>
-  </div>
+    <div class="col-md-6">
+       <%= f.label :Upload_Your_Avatar,class:"form-label" %>
+       <%= f.file_field :user_avatar,autofocus:true,class:"form-control",placeholder:"Enter Your Avatar"%>
+    </div>
 
+   </div>
 
+  
+   
 
   <div class="actions mt-3" style="text-align: center;">
     <%= f.submit "Update",class:"btn btn-primary p-2" %>

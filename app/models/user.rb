@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_one_attached :user_avatar,dependent: :destroy
   has_many :addresses,dependent: :destroy
   has_many :reviews,dependent: :destroy
+  has_many :orders,dependent: :destroy
   has_one :wish_list,dependent: :destroy
   has_one :cart
   validates :first_name,:last_name,presence:true

@@ -25,7 +25,7 @@ module ProductsHelper
      sum = product.reviews.pluck(:rating).sum
      deno = product.reviews.count
      avg = sum.to_f / deno.to_f
-     return avg
+     return avg.round(1)
   end
 
 

@@ -4,7 +4,7 @@ class WishListsController < ApplicationController
 
   def index
     if current_user.wish_list.present?
-      @wish_products = current_user.wish_list.products
+      @wish_products = current_user.wish_list.products.page(params[:page])
     else
       @wish_products = current_user.create_wish_list.products
     end

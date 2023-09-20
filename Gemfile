@@ -97,4 +97,7 @@ gem 'country-select'
 #Adding dotenv-rails gem
 gem "dotenv-rails", groups: [:development, :test]
 
-
+#Adding kaminari gem for pagination
+gem "kaminari"
+gem 'bootstrap5-kaminari-views'
+# gem 'jquery-rails'

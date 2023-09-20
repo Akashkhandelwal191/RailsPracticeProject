@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+   
+  get 'orders/processorder'
+  resources :orders
   
   get 'carts/:id/add_product_to_cart' => 'carts#add_product_to_cart',as: :add_product_to_cart
   get 'carts/:id/remove_product_from_cart' => 'carts#remove_product_from_cart',as: :remove_product_from_cart
@@ -7,7 +10,7 @@ Rails.application.routes.draw do
   get 'line_items_products/:id/increment' => 'line_items_products#increment',as: :increment
   get 'line_items_products/:id/decrement' => 'line_items_products#decrement',as: :decrement
 
-
+  resources :addresses
   resources :carts
   # get 'wish_lists/index'
   # get 'wish_lists/show'
@@ -36,3 +39,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 end
+
+
