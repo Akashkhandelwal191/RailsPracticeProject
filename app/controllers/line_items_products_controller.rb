@@ -1,4 +1,8 @@
 class LineItemsProductsController < ApplicationController
+ 
+    def index
+       @cart_products = current_user.cart.line_items_products
+    end
 
     
     def increment

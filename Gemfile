@@ -101,3 +101,5 @@ gem "dotenv-rails", groups: [:development, :test]
 gem "kaminari"
 gem 'bootstrap5-kaminari-views'
 # gem 'jquery-rails'
+
+gem 'razorpay'

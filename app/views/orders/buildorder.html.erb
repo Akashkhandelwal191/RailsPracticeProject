@@ -1,0 +1,122 @@
+<h1>Build Order </h1>
+
+<h3>Your Order ID:- <%= @order_id %>  </h3>
+
+<!-- CheckOut Page -->
+<div class="container">
+   
+<h3>Checkout Page</h3>
+<div class="p-2" style="border:2px solid black;">
+           
+<div>
+	  Your Order will Delivered to:
+   
+  <div class="border border-2 m-2 p-2 processorder" style="position: relative;">
+     <div class="d-flex">
+                             
+     <p><%= @selected_address.area %>,<%=  @selected_address.city %>,<%=  @selected_address.state %>,<%=  @selected_address.country%>,<%=  @selected_address.postal_code%> </p>
+                     
+      </div>                                 
+   </div>
+
+</div> 
+
+<div class="show-order-summary">
+ 
+  <% if @make_order.line_items_products.present? %>
+              
+    <% @make_order.line_items_products do |p| %>
+			<div class="card mb-3" style="max-width: 100%;height: 200px;">
+			    <div class="row g-0">
+			        <div class="col-md-4 border border-2">
+			          <% if p.product.product_images.present? %>
+			            <%= image_tag p.product.product_images.first,class:"img-fluid rounded-start cart-product-image"%>
+			          <%else%>
+			            <img src="https://nayemdevs.com/wp-content/uploads/2020/03/default-product-image.png" class="img-fluid rounded-start" alt="...">
+			         <% end %>
+			        </div>
+			    <div class="col-md-8">
+			       <div class="card-body">
+			          <h5 class="card-title">
+			          <a href="products/<%= p.product.id %>" class="styleanchor name-h">
+			          <%= truncate(p.product.product_name) %>
+			          </a></h5>
+			     
+			    <div>
+			     <span>
+			     <span class="card-text fs-4">₹<%= format_number(p.discounted_price) %></span>
+			     &nbsp;
+			     <del><%= format_number(p.total_price)%></del>
+			      &nbsp;
+			     <span class="fs-6" style="color:green"><%= p.product.offer%>% off </span>
+			    </span>
+			    </div>
+			                       
+			      <div class="mt-2">
+			         <h6>Total Quantity:<%= p.quantity %></h6>
+			      </div>
+
+			   
+			    </div>
+			   </div>
+			  </div>
+			  </div>
+    
+
+        <%end%>
+
+   <%end%>
+
+</div>
+     
+    <div class="d-flex justify-content-end">
+    <button id="rzp-button1" class="btn btn-primary">Pay</button>
+    </div>     
+   </div>
+
+</div>
+
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_test_n9WZ7iPwJ2DI5k", // Enter the Key ID generated from the Dashboard
+    "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Let's Shop",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": "<%= @order_id %>", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        alert(response.razorpay_payment_id);
+        alert(response.razorpay_order_id);
+        alert(response.razorpay_signature)
+    },
+    "prefill": {
+        "name": "<%= current_user.first_name %>",
+        "email": "<%= current_user.email %>",
+        "contact": "<%= current_user.mobile_number%>"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
