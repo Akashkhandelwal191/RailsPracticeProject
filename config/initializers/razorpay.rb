@@ -1,3 +1,3 @@
-key_id = 'rzp_test_n9WZ7iPwJ2DI5k'
-secret_key = 'JxxR16sLl2d1mIh96gDVdSRo'
+key_id = ENV['RAZORPAY_KEY_ID']
+secret_key = ENV['RAZORPAY_SECRET_KEY']
 Razorpay.setup(key_id, secret_key)

@@ -1,7 +1,105 @@
 <%= render 'layouts/navbar' %>
+<div class="w-100 border border-2 p-2" style="text-align:center;font-weight:bolder; font-size:1.5rem;font-family: sans-serif;">Your Orders </div>
+<div class="container-fluid mt-3">
+
+   <% if current_user.orders.present? %>
+
+      <% current_user.orders.order("created_at DESC").each do |order| %>
+          
+          <div class="container-fluid p-4 mt-4" style="background-color:white;border-radius: 30px;" >
+             
+            <div class="">
+              <h6>Order Date: <%= date_formating(order.created_at) %> </h6>
+            </div>
+
+             <div>
+               <h6>Expected Delivery By <span style="color:green"> <%= date_formating(DateTime.now + 4) %> </span> </h6>
+             </div>
+
+            <div class="row">
+                 <div class="col-md-4">
+                   <h6>Order Id: <%= order.razorpay_order_id%> </h6>
+                 </div>
+
+                 <div class="col-md-4">
+                   <h6>Payment Id: <%= order.payment.payment_id %> </h6> 
+                 </div>
+
+                 <div class="col-md-4">
+                    <h6>Payment Method: <%= order.payment.payment_method %></h6>
+                 </div>
+            </div>
+
+            <div class="row">
+        
+               <div class="col-md-4">
+                   <h6>Total Products Quantity: <%= order.line_items_products.count %></h6> 
+               </div>
+
+               <div class="col-md-4">
+                  <h6>Total Amount: &#8377;<%= format_number(order.total_amount.round) %> </h6>
+               </div>
 
 
-<div class="border border-2 emptycart" style="text-align:center; margin: auto;">
+               <div class="col-md-4">
+                   <h6>Status: <span class="text-danger"><%= order.status %></span></h6>
+               </div>
+            </div>
+
+      
+ 
+             <div class="row">
+             
+              <div class="col-md-12">
+              <p><span class="fs-5" style="color:green">Your order will be delivered to:</span>&nbsp;<span><%= order.address.area%>,<%= order.address.city %>,<%= order.address.state%>,<%= order.address.country%>,<%= order.address.postal_code%> </span></p>
+              </div>
+ 
+             </div>
+
+            
+
+            <div class="border border-2 ScrollBar">
+               <% order.line_items_products.each do |p| %>
+          
+                 <div class="card mb-3" style="max-width: 100%;height: 200px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <% if p.product.product_images.present? %>
+                      <%= image_tag p.product.product_images.first,class:"img-fluid rounded-start cart-product-image"%>
+                    <%else%>
+                    <img src="https://nayemdevs.com/wp-content/uploads/2020/03/default-product-image.png" class="img-fluid rounded-start" alt="...">
+                    <% end %>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        <a href="products/<%= p.product.id %>" class="styleanchor name-h">
+                       <%= truncate(p.product.product_name) %>
+                        </a>
+                       </h5>
+                      <div>
+                          <span>
+                          <span class="card-text fs-4">₹<%= format_number(p.discounted_price) %></span>
+                          &nbsp;
+                          <del><%= format_number(p.total_price)%></del>
+                          &nbsp;
+                          <span class="fs-6" style="color:green"><%= p.product.offer%>% off </span>
+                          </span>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+               </div>
+              <%end%>
+            </div>
+
+          </div>
+  
+      <%end%>
+
+   <%else%>
+    
+    <div class="border border-2 emptycart" style="text-align:center; margin: auto;">
       <img src="https://cdni.iconscout.com/illustration/premium/thumb/wishlist-5171457-4320894.png",class="img-fluid" style="width: 300px;">
       <h3>You don't have any orders right now </h3>
       <p style="color:#495057;">Before Proceed to checkout,you must add some products on your cart.You willl find a lot of interesting products on our "Shop" page. </p>
@@ -9,8 +107,12 @@
       <div class="d-flex justify-content-center mt-2">
        <a class="btn btn-success" href="/"><i class="bi bi-cart-fill"></i> Return to Shop Page</a>
       </div>
+    </div>
 
+   <%end%>
 </div>
+
+
 
 
 

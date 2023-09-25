@@ -7,6 +7,14 @@ module HomesHelper
        end
 	end
 
+    def count_orders
+       if current_user.orders.count > 0 
+          return current_user.orders.count
+       else
+          return 0
+       end
+    end
+
    def truncate(string, max=20)
       string.length > max ? "#{string[0...max]}..." : string
    end

@@ -1,3 +1,10 @@
+<script>
+    $(document).ready(function() 
+    {
+     window.history.forward();
+   });   
+</script>
+
 <%= render 'layouts/navbar' %>
 
 
@@ -62,7 +69,7 @@
              <hr/>
              <div class="d-flex justify-content-between">
                 <h6>Price</h6>
-                <h6><%= current_user.cart.total_price %></h6>
+                <h6>&#8377;<%= format_number(current_user.cart.total_price.round) %></h6>
              </div>
              <div class="d-flex justify-content-between">
                 <h6>Discount</h6>
@@ -75,7 +82,7 @@
              <hr/>
              <div class="d-flex justify-content-between">
                 <h6>Total Amount</h6>
-                <h6><%= current_user.cart.total_amount %></h6>
+                <h6>&#8377;<%= format_number(current_user.cart.total_amount) %></h6>
              </div>
              <hr/>
           </div>
@@ -127,18 +134,9 @@
                             $('#order-summary-container').html(data);
         
                               $(document).on('click', '#proceed', function () {
-                                  
-                                  $.ajax({
-                                      url: `/orders/${flags.addressid}/buildorder`,
-                                      type: 'GET',
-                                      dataType: 'html',
-                                      success: function (data) {
-                                           window.location = `/orders/${flags.addressid}/buildorder`;
-                                      },
-                                      error: function () {
-                                        alert('An error occurred while loading the review form.');
-                                      }
-                                    }); 
+                                   
+
+                                window.location = `/orders/${flags.addressid}/buildorder`;
                             });
 
 

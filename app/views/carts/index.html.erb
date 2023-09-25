@@ -65,7 +65,7 @@
                </div>
             <%end%>
             <div class="d-flex justify-content-end">
-            <a href="/orders/processorder" class="btn p-3" style="background-color: #FF6E31;color:white;border:none;border-radius: 0px;width: 250px;">Place Order</a>
+            <a href="/orders/processorder" class="btn p-3" style="background-color: #FF6E31;color:white;border:none;border-radius: 0px;width: 250px;" data-method="GET">Place Order</a>
             </div>
           </div>
             
@@ -76,7 +76,7 @@
              <hr/>
              <div class="d-flex justify-content-between">
                 <h6>Price</h6>
-                <h6><%= current_user.cart.total_price %></h6>
+                <h6>&#8377;<%= format_number(current_user.cart.total_price.round) %></h6>
              </div>
              <div class="d-flex justify-content-between">
                 <h6>Discount</h6>
@@ -89,7 +89,7 @@
              <hr/>
              <div class="d-flex justify-content-between">
                 <h6>Total Amount</h6>
-                <h6><%= current_user.cart.total_amount %></h6>
+                <h6>&#8377;<%= format_number(current_user.cart.total_amount.round) %></h6>
              </div>
              <hr/>
           </div>
