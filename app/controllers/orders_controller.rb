@@ -2,7 +2,11 @@ class OrdersController < InheritedResources::Base
 
 
   def index
-    @orders = current_user.orders
+    current_user.orders.each do |order|
+       if order.payment.nil?
+         order.destroy
+       end
+    end
   end
 
   def buildorder

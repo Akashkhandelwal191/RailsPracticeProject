@@ -27,7 +27,9 @@
             <a href="/carts/<%= @product.id%>/add_product_to_cart" class="w-100 btn btn-success p-2" id="cart-product<%= @product.id %>">
             <i class="bi bi-cart-fill"></i> &nbsp; ADD TO CART</a>
             &nbsp; &nbsp;
-            <button class="btn btn-warning w-100 p-2"><i class="bi bi-lightning-charge-fill"></i> &nbsp; BUY NOW</button>   
+
+            <a href="/products/<%= @product.id %>/buynow" class="btn btn-warning w-100 p-2"><i class="bi bi-lightning-charge-fill"></i> &nbsp; BUY NOW</a>
+               
         </div>
     </div>
     <div class="col-md-8">

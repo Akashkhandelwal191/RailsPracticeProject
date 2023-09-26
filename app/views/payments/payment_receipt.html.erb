@@ -1,0 +1,108 @@
+<div class="" style="border-radius: 10px;">
+   
+<div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 padding checkout1">
+  <div class="card">
+   <div class="card-header p-2">
+<div class="float-right"> <h3 class="mb-0">Payment Receipt#<%= @user.orders.last.payment.payment_id %></h3>
+Date: <%= @user.orders.last.created_at.strftime("%A, %B %d, %Y at %I:%M %P") %></div>
+<i style="color:green;">Your Order has been successfully placed</i>
+</div>
+<div class="card-body">
+<div class="row mb-2">
+<div class="col-sm-5">
+<h5 class="mb-1">Your Order will be Delivered to:</h5>
+<h3 class="text-dark mb-1"><%= @user.first_name %> <%= @user.last_name%></h3>
+<div><%= @user.orders.last.address.area %></div>
+<div><%=  @user.orders.last.address.city %>,<%=  @user.orders.last.address.state %>,<%=  @user.orders.last.address.country%>,<%=  @user.orders.last.address.postal_code%></div>
+<div>Email: <%= @user.email %></div>
+<div>Phone: +91 <%= @user.mobile_number %></div>
+</div>
+
+<div class="col-sm-6" style="border-left: 2px solid black;">   
+   <h6>Order Id: <%= @user.orders.last.razorpay_order_id %></h6>
+   <div class="mt-2">
+   <h6>Order Status: <span class="text-danger"><%= @user.orders.last.status %></span></h6>
+   </div>
+   
+   <div class="mt-2">
+   <h6>Payment Method: <%= @user.orders.last.payment.payment_method %></h6>
+   </div>
+</div>
+</div>
+<div class="table-responsive-sm">
+<table class="table table-striped">
+<thead>
+<tr>
+<th class="center">#</th>
+<th>Item</th>
+<th>Description</th>
+<th class="right">Price</th>
+<th class="center">Qty</th>
+<th class="right">Total</th>
+</tr>
+</thead>
+<tbody>
+  <% if @user.orders.last.line_items_products.present? %>
+       
+    <% @user.orders.last.line_items_products.each_with_index do |p,idx| %>
+   
+       <tr>
+          <td class="center"><%= idx+1 %></td>
+          <td class="left strong"> <%= p.product.product_name %> </td>
+          <td class="left"><%= p.product.product_description %> </td>
+          <td class="right">&#8377;<%=  p.product.product_price %></td>
+          <td class="center"><%= p.quantity %></td>
+          <td class="right">&#8377;<%= p.discounted_price %></td>
+       </tr>
+
+    <%end%>
+  <%end%>
+</tbody>
+</table>
+</div>
+<div class="row">
+<div class="col-md-8">
+</div>
+<div class="col-md-4 ml-auto">
+<table class="table table-clear">
+<tbody>
+<tr>
+<td class="left">
+<strong class="text-dark">Subtotal</strong>
+</td>
+<td class="right">&#8377;<%= @user.cart&.total_price&.round %></td>
+</tr>
+<tr>
+<td class="left">
+<strong class="text-dark">Discount (10%)</strong>
+</td>
+<td class="right">&#8377;2000</td>
+</tr>
+<tr>
+<td class="left">
+<strong class="text-dark">Delivery Charges</strong>
+</td>
+<td class="right">&#8377;200</td>
+</tr>
+<tr>
+<td class="left">
+<strong class="text-dark">Total Amount</strong>
+ </td>
+<td class="right">
+<strong class="text-dark">&#8377;<%= @user.orders.last.total_amount.round %></strong>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>   
+</div>
+<div class="card-footer bg-white">
+<p class="mb-0">Let's Shop,NCR Mumbai, 110034</p>
+</div>
+</div>
+</div>
+
+
+</div>

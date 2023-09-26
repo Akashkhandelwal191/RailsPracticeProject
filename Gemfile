@@ -103,3 +103,6 @@ gem 'bootstrap5-kaminari-views'
 # gem 'jquery-rails'
 
 gem 'razorpay'
+
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

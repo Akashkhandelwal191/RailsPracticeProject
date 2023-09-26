@@ -6,4 +6,11 @@ class UserMailer < ApplicationMailer
      mail(to: email_address_with_name(@user.email, @user.first_name),subject: "Welcome To Let's Shop")
     end
 
+    def payment_receipt_mail(user)
+      @user = user
+      attachments["user_#{user.id}.pdf"] = WickedPdf.new.pdf_from_string(
+      render_to_string(template: 'payments/payment_receipt',locals: {url: Rails.application.routes.url_helpers},layout: 'pdf', pdf: "user_#{user.id}"))
+      mail(to: email_address_with_name(@user.email, @user.first_name),subject: "Your Order Has Been Successfully Placed!!")
+    end
+
 end

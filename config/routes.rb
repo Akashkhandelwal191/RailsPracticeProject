@@ -2,8 +2,10 @@ Rails.application.routes.draw do
    
   get 'payments/:id/paymentsuccess' => 'payments#paymentsuccess'
   get 'payments/paymentfailed' => 'payments#paymentfailed'
+  get 'payments/payment_receipt'
   get 'orders/processorder'
   get 'orders/:id/buildorder' => 'orders#buildorder',as: :buildorder
+  get 'products/:id/buynow' => 'products#buynow',as: :buynow
   resources :orders
   
   get 'carts/:id/add_product_to_cart' => 'carts#add_product_to_cart',as: :add_product_to_cart

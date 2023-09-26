@@ -101,59 +101,56 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <script>
- 
- document.addEventListener("DOMContentLoaded", function() {
-    var radioInputs = document.querySelectorAll("input[type='radio']");
+var radioInputs = document.querySelectorAll("input[type='radio']");
+
+radioInputs.forEach(function(radioInput) {
+    radioInput.addEventListener("change", function() {
+        if (this.checked) {
+            console.log(this.id)
+            let s = this.id
+            const myarray = s.split('-')
+            console.log(myarray[1])
+            var addressid = myarray[1]
+            var flags = {addressid:addressid}
+            console.log(flags.addressid)
+            document.getElementById('spinner-border').style.display="block";
+          
+            setTimeout(function(){
+
+                 document.getElementById('select-address').classList.remove("processorder-heading")
+                 document.getElementById("order-summary").scrollIntoView();
+     
+                 document.getElementById('order-summary').classList.add("processorder-heading")
+
+                 document.getElementById('spinner-border').style.display="none";
+
+                 $.ajax({
+                      url: '<%= line_items_products_index_path  %>',
+                      type: 'GET',
+                      dataType: 'html',
+                      success: function (data) {
+                        $('#order-summary-container').html(data);
     
-    radioInputs.forEach(function(radioInput) {
-        radioInput.addEventListener("change", function() {
-            if (this.checked) {
-                console.log(this.id)
-                let s = this.id
-                const myarray = s.split('-')
-                console.log(myarray[1])
-                var addressid = myarray[1]
-                var flags = {addressid:addressid}
-                console.log(flags.addressid)
-                document.getElementById('spinner-border').style.display="block";
-              
-                setTimeout(function(){
+                          $(document).on('click', '#proceed', function () {
+                               
 
-                     document.getElementById('select-address').classList.remove("processorder-heading")
-                     document.getElementById("order-summary").scrollIntoView();
-         
-                     document.getElementById('order-summary').classList.add("processorder-heading")
-
-                     document.getElementById('spinner-border').style.display="none";
-
-                     $.ajax({
-                          url: '<%= line_items_products_index_path  %>',
-                          type: 'GET',
-                          dataType: 'html',
-                          success: function (data) {
-                            $('#order-summary-container').html(data);
-        
-                              $(document).on('click', '#proceed', function () {
-                                   
-
-                                window.location = `/orders/${flags.addressid}/buildorder`;
-                            });
+                            window.location = `/orders/${flags.addressid}/buildorder`;
+                        });
 
 
-                          },
-                          error: function () {
-                            alert('An error occurred while loading the review form.');
-                          }
-                       });
+                      },
+                      error: function () {
+                        alert('An error occurred while loading the review form.');
+                      }
+                   });
 
-                },2000)
-               
+            },2000)
+           
 
-                // this.parentElement.classList.add("prod");
-            } else {
-                // this.parentElement.classList.remove("prod");
-            }
-        });
+            // this.parentElement.classList.add("prod");
+        } else {
+            // this.parentElement.classList.remove("prod");
+        }
     });
 });
 
