@@ -45,6 +45,10 @@
   </div>
 
  <%end%>
+  <div class="d-flex justify-content-center mt-3">
+       <%= paginate @search_products,theme: 'bootstrap-5',pagination_class:"pagination-md flex-wrap justify-content-center",
+                   nav_class: "d-inline-block",class:"w-50"%>
+  </div>
  
   <% else %>
   

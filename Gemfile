@@ -102,7 +102,14 @@ gem "kaminari"
 gem 'bootstrap5-kaminari-views'
 # gem 'jquery-rails'
 
+#Adding Razorpay Gem
 gem 'razorpay'
 
+
+#Adding Wicked Pdf Gem
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+
+
+#Adding Stipe Payment Gateway Gem
+gem 'stripe'

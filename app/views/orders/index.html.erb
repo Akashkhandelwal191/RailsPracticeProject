@@ -3,11 +3,19 @@
 <div class="container-fluid mt-3">
 
    <% if current_user.orders.present? %>
+         
 
-      <% current_user.orders.order("created_at DESC").each do |order| %>
+         <% orders = current_user.orders.order("created_at DESC").page(params[:page]).per(2) %>
+      <% orders.each_with_index do |order,idx| %>
           
-          <div class="container-fluid p-4 mt-4" style="background-color:white;border-radius: 30px;" >
-             
+          <div class="container-fluid p-4 mt-4 border border-2" style="background-color:white;border-radius: 30px;" >
+            
+
+            <% if params[:page]==nil && idx == 0 %>
+               <span class="badge rounded-pill text-bg-success mb-2">Most Recent Order</span>
+               <% @flag = false %>
+            <%end%> 
+
             <div class="">
               <h6>Order Date: <%= date_formating(order.created_at) %> </h6>
             </div>
@@ -99,7 +107,11 @@
           </div>
   
       <%end%>
-
+      
+       <div class="d-flex justify-content-center mt-3">
+       <%= paginate orders,theme: 'bootstrap-5',pagination_class:"pagination-md flex-wrap justify-content-center",
+                   nav_class: "d-inline-block",class:"w-50"%>
+      </div>
    <%else%>
     
     <div class="border border-2 emptycart" style="text-align:center; margin: auto;">

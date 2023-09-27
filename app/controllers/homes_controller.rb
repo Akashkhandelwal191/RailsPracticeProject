@@ -8,7 +8,7 @@ class HomesController < ApplicationController
   end
 
   def search
-    @search_products = Product.where("product_name LIKE ?","%#{params[:query]}%")
+    @search_products = Product.where("product_name LIKE ?","%#{params[:query]}%").page(params[:page]).per(3)
   end
 
 end
