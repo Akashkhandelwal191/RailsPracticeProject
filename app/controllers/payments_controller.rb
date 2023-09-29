@@ -32,4 +32,37 @@ class PaymentsController < ApplicationController
     end
 
 
+
+    def pay
+        @order = Order.find(params[:id])
+
+        if @order.stripe_payment_intent_id
+          payment_intent = get_payment_intent
+        else
+          payment_intent = create_payment_intent
+          
+          @order.update!(stripe_payment_intent_id: payment_intent.id)
+        end
+
+        @payment_intent_client_secret = payment_intent.client_secret
+    end
+
+
+    private
+      
+      def create_payment_intent
+        actual_amount = (@order.total_amount*100).to_i
+        Stripe::PaymentIntent.create({
+          amount: actual_amount,
+          currency: 'inr',
+          automatic_payment_methods: {enabled: true},
+          description: "Order #{@order.id}"
+        })
+      end
+
+      def get_payment_intent
+        Stripe::PaymentIntent.retrieve(@order.stripe_payment_intent_id)
+      end
+
+
 end

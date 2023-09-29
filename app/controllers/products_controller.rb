@@ -9,17 +9,8 @@ class ProductsController < InheritedResources::Base
     if current_user.cart.line_items_products.find_by(product_id:params[:id]).nil?
          commoncode
     end
-
     @cart_products = current_user.cart.line_items_products
     redirect_to '/orders/processorder'
   end
-   
-
-
-  private
-
-    def product_params
-      params.require(:product).permit()
-    end
 
 end

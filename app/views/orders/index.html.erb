@@ -1,4 +1,14 @@
 <%= render 'layouts/navbar' %>
+<% if params["redirect_status"] == "succeeded" %>
+
+  <div class="alert alert-success">Payment successful</div>
+
+<% elsif params["redirect_status"] == "failed" %>
+
+  <div class="alert alert-danger">Payment failed. Please try again with a different payment method.</div>
+
+<% end %>
+
 <div class="w-100 border border-2 p-2" style="text-align:center;font-weight:bolder; font-size:1.5rem;font-family: sans-serif;">Your Orders </div>
 <div class="container-fluid mt-3">
 
@@ -15,6 +25,14 @@
                <span class="badge rounded-pill text-bg-success mb-2">Most Recent Order</span>
                <% @flag = false %>
             <%end%> 
+            
+            <div>
+               <% if order.stripe_payment_intent_id.present? %>
+                   <h6>Payment Gateway: <span class="text-success">Stripe</span> </h6>  
+                <%else%>
+                   <h6>Payment Gateway: <span class="text-success">Razorpay</span> </h6>
+               <%end%>
+            </div>
 
             <div class="">
               <h6>Order Date: <%= date_formating(order.created_at) %> </h6>
@@ -26,15 +44,27 @@
 
             <div class="row">
                  <div class="col-md-4">
-                   <h6>Order Id: <%= order.razorpay_order_id%> </h6>
+                   <% if order.stripe_payment_intent_id.present? %>
+                       <h6>Order Id: #<%= order.id %> </h6>
+                   <%else%>
+                        <h6>Order Id: <%= order.razorpay_order_id%> </h6>
+                    <%end%>
                  </div>
 
                  <div class="col-md-4">
-                   <h6>Payment Id: <%= order.payment.payment_id %> </h6> 
+                   <% if order.stripe_payment_intent_id.present? %>
+                       <h6>Payment Id:<%= order.stripe_payment_intent_id %> </h6>
+                   <%else%>
+                       <h6>Payment Id: <%= order.payment.payment_id %> </h6>
+                   <%end%> 
                  </div>
 
                  <div class="col-md-4">
-                    <h6>Payment Method: <%= order.payment.payment_method %></h6>
+                    <% if order.stripe_payment_intent_id.present? %>
+                       <h6>Payment Method: Card </h6>
+                    <%else%>
+                      <h6>Payment Method: <%= order.payment.payment_method %></h6>
+                    <%end%>
                  </div>
             </div>
 
@@ -126,9 +156,6 @@
 
    <%end%>
 </div>
-
-
-
 
 
 <%= render 'layouts/footer'%>

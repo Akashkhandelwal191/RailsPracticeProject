@@ -2,6 +2,7 @@ Rails.application.routes.draw do
    
   get 'payments/:id/paymentsuccess' => 'payments#paymentsuccess'
   get 'payments/paymentfailed' => 'payments#paymentfailed'
+  get 'payments/:id/pay' => 'payments#pay'
   get 'payments/payment_receipt'
   get 'orders/processorder'
   get 'orders/:id/buildorder' => 'orders#buildorder',as: :buildorder

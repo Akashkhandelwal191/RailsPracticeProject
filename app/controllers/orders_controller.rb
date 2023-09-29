@@ -3,7 +3,7 @@ class OrdersController < InheritedResources::Base
 
   def index
     current_user.orders.each do |order|
-       if order.payment.nil?
+       if order.payment.nil? && order.stripe_payment_intent_id.nil?
          order.destroy
        end
     end
