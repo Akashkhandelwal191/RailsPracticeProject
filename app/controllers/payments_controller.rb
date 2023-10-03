@@ -17,18 +17,18 @@ class PaymentsController < ApplicationController
     end
 
     def payment_receipt
-      @user = current_user
-      respond_to do |format|
-        format.html
-        format.pdf do
-          render pdf: [@user.id, @user.first_name].join('-'),
-                 template: "payments/payment_receipt",
-                 title:"#{@user.first_name}",
-                 formats: [:html],
-                 disposition: :inline,  
-                 layout: 'pdf'
-        end
-      end
+      # @user = current_user
+      # respond_to do |format|
+      #   format.html
+      #   format.pdf do
+      #     render pdf: [@user.id, @user.first_name].join('-'),
+      #            template: "payments/payment_receipt",
+      #            title:"#{@user.first_name}",
+      #            formats: [:html],
+      #            disposition: :inline,  
+      #            layout: 'pdf'
+      #   end
+      # end
     end
 
 

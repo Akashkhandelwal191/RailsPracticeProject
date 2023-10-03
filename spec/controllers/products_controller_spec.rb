@@ -3,11 +3,7 @@ require "rails_helper"
 RSpec.describe ProductsController, type: :controller do 
  
    
-    before(:each) do
-       @user = FactoryBot.create(:user)
-       sign_in(@user)
-    end
-
+    set_login_user
 
     describe "Products #show" do 
       let!(:category) {FactoryBot.create(:category)}

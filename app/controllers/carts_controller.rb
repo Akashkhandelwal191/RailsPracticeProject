@@ -29,10 +29,6 @@ class CartsController < InheritedResources::Base
      redirect_to carts_path, notice: 'Product Removed From Your Cart'
   end
 
-  private
-
-    def cart_params
-      params.require(:cart).permit(:user_id)
-    end
+ 
 
 end

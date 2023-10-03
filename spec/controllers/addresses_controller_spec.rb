@@ -2,10 +2,7 @@ require "rails_helper"
 
 RSpec.describe AddressesController, type: :controller do 
 
-  before(:each) do
-    @user = FactoryBot.create(:user)
-    sign_in(@user)
-  end
+  set_login_user
  
   let(:valid_params) {{
     "address": {
