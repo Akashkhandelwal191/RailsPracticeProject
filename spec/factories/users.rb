@@ -1,7 +1,7 @@
 require 'faker'
 FactoryBot.define do
   factory :user do
-    first_name {"Manoj"}
+    first_name {Faker::Name.name}
     last_name {"gupta"}
     gender {"male"}
     mobile_number {"9993869873"}

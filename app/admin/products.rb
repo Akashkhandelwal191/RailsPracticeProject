@@ -35,11 +35,6 @@ ActiveAdmin.register Product do
       row "category_name" do |p|
          p.category.category_name
       end
-      row "wish_list" do |w|
-         w.wish_lists.each do |u|
-            u.user.first_name
-         end
-      end
      end
     active_admin_comments
   end

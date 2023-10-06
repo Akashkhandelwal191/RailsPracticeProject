@@ -5,5 +5,6 @@ FactoryBot.define do
     product_price {200}
     product_quantity {10}
     offer {10}
+    product_images {[Rack::Test::UploadedFile.new(Rails.root.join('spec/images/sachin.jpg'), 'photo/jpg')]}
   end
 end
