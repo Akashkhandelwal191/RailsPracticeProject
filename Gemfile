@@ -124,4 +124,6 @@ gem 'stripe'
 #Added Faker For Dummy Data
 gem 'faker'
 
+gem 'sidekiq'
+gem "sidekiq-cron" 
 

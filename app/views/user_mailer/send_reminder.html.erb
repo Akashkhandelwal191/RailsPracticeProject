@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi,<%= @user.first_name %> <%= @user.last_name %> </h1>
+    <p>
+      Your Left Something in your cart!!
+    </p>
+    <p>You Left <%= @user.cart.line_items_products.count%> items</p>
+    <p>Hurry Up!! For Buy right now there is huge discount on these products</p>
+  </body>
+</html>

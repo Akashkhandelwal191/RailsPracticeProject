@@ -1,0 +1,5 @@
+send_emails_job:
+  # cron: "*/30 * * * * *"
+  #send mail to the user after every one week if user have items in a cart
+  cron: "0 * * * 7" 
+  class: "SendEmailsJob"

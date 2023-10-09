@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-   
+  
+  require 'sidekiq/web' 
+  mount Sidekiq::Web => '/sidekiq' 
+
   get 'payments/:id/paymentsuccess' => 'payments#paymentsuccess'
   get 'payments/paymentfailed' => 'payments#paymentfailed'
   get 'payments/:id/pay' => 'payments#pay'

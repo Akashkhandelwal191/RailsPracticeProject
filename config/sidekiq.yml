@@ -1,0 +1,4 @@
+send_emails_job: 
+   cron: "*/30 * * * * *"
+
+   # class: "NotificationCleanupJob" 

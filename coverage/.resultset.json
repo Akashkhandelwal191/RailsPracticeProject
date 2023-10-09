@@ -1,288 +1,16 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/user.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          5,
-          null,
-          null,
-          1,
-          5,
-          5,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/application_helper.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/active_admin/views_helper.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/addresses_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/carts_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/categories_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/homes_helper.rb": {
-        "lines": [
-          1,
-          1,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/line_items_products_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/orders_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/payments_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/products_helper.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/reviews_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/wish_lists_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/admin_user.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
       "/home/rails-17/Desktop/Akash/Ecommerce/app/admin/addresses.rb": {
         "lines": [
-          1,
+          0,
           null,
           null,
           null,
           null,
           null,
           null,
-          1,
+          0,
           null,
           null,
           null,
@@ -293,7 +21,6 @@
           null,
           null,
           null,
-          1,
           0,
           0,
           0,
@@ -302,65 +29,61 @@
           0,
           0,
           0,
-          null,
-          null,
           0,
           null,
+          0,
+          0,
+          0,
           null,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/address.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
+          0
+        ],
+        "branches": {
+        }
       },
       "/home/rails-17/Desktop/Akash/Ecommerce/app/admin/admin_users.rb": {
         "lines": [
-          1,
-          1,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
           0,
           0,
           null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
+          0,
+          0,
+          0,
+          0,
+          0,
           0,
           0,
           0,
           0,
           null,
           0,
+          0,
+          0,
+          0,
           null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           null,
-          null
-        ]
+          0
+        ],
+        "branches": {
+        }
       },
       "/home/rails-17/Desktop/Akash/Ecommerce/app/admin/carts.rb": {
         "lines": [
-          1,
+          0,
           null,
           null,
           null,
           null,
           null,
           null,
-          1,
+          0,
           null,
           null,
           null,
@@ -370,40 +93,17 @@
           null,
           null,
           null,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/cart.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
+          0
+        ],
+        "branches": {
+        }
       },
       "/home/rails-17/Desktop/Akash/Ecommerce/app/admin/categories.rb": {
         "lines": [
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
           0,
-          0,
-          0,
+          null,
+          null,
+          null,
           null,
           null,
           null,
@@ -411,41 +111,53 @@
           null,
           null,
           null,
-          1,
-          0,
-          0,
-          0,
-          0,
+          null,
+          null,
+          null,
           null,
           null,
           0,
           null,
           0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
           null,
           null,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/category.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
       },
       "/home/rails-17/Desktop/Akash/Ecommerce/app/admin/dashboard.rb": {
         "lines": [
           null,
-          1,
-          1,
+          0,
+          0,
           null,
-          1,
           0,
           0,
           0,
           0,
+          0,
+          0,
+          0,
           null,
           null,
           null,
@@ -466,22 +178,22 @@
           null,
           null,
           null,
-          null,
-          null,
-          null,
-          null
-        ]
+          0,
+          0
+        ],
+        "branches": {
+        }
       },
       "/home/rails-17/Desktop/Akash/Ecommerce/app/admin/line_items_products.rb": {
         "lines": [
-          1,
+          0,
           null,
           null,
           null,
           null,
           null,
           null,
-          1,
+          0,
           null,
           null,
           null,
@@ -492,114 +204,41 @@
           null,
           null,
           null,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/line_items_product.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
+          0
+        ],
+        "branches": {
+        }
       },
       "/home/rails-17/Desktop/Akash/Ecommerce/app/admin/orders.rb": {
         "lines": [
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/order.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
           0,
           null,
           null,
-          null
-        ]
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
       },
       "/home/rails-17/Desktop/Akash/Ecommerce/app/admin/products.rb": {
         "lines": [
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
           0,
           null,
           null,
           null,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
           null,
           null,
           null,
@@ -613,73 +252,105 @@
           null,
           null,
           null,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/product.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
       },
       "/home/rails-17/Desktop/Akash/Ecommerce/app/admin/reviews.rb": {
         "lines": [
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
           0,
-          0,
-          0,
-          0,
-          0,
+          null,
+          null,
+          null,
+          null,
           null,
           null,
           0,
           null,
           null,
           null,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/review.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
       },
       "/home/rails-17/Desktop/Akash/Ecommerce/app/admin/users.rb": {
         "lines": [
-          1,
+          0,
           null,
           null,
           null,
           null,
           null,
           null,
-          1,
+          0,
           null,
           null,
           null,
@@ -688,7 +359,6 @@
           null,
           null,
           null,
-          1,
           0,
           0,
           0,
@@ -696,12 +366,6 @@
           0,
           0,
           0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          1,
           0,
           0,
           0,
@@ -714,115 +378,47 @@
           0,
           0,
           0,
-          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           0,
           null,
           null,
-          null,
-          null
-        ]
+          0
+        ],
+        "branches": {
+        }
       },
       "/home/rails-17/Desktop/Akash/Ecommerce/app/admin/wish_lists.rb": {
         "lines": [
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/wish_list.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/controllers/line_items_products_controller.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          2,
-          2,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          2,
-          2,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/mailers/user_mailer.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          5,
-          5,
-          5,
-          null,
-          null,
-          1,
           0,
-          0,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           0,
           null,
           null,
-          null
-        ]
-      },
-      "/home/rails-17/Desktop/Akash/Ecommerce/app/mailers/application_mailer.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
       },
       "/home/rails-17/Desktop/Akash/Ecommerce/app/channels/application_cable/channel.rb": {
         "lines": [
@@ -885,6 +481,42 @@
         "branches": {
         }
       },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/controllers/application_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/home/rails-17/Desktop/Akash/Ecommerce/app/controllers/carts_controller.rb": {
         "lines": [
           0,
@@ -939,6 +571,51 @@
           0,
           0,
           0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/controllers/line_items_products_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
           null,
           0
         ],
@@ -1428,6 +1105,213 @@
         "branches": {
         }
       },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/active_admin/views_helper.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/addresses_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/application_helper.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/carts_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/categories_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/homes_helper.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/line_items_products_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/orders_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/payments_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/products_helper.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/reviews_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/helpers/wish_lists_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/home/rails-17/Desktop/Akash/Ecommerce/app/jobs/application_job.rb": {
         "lines": [
           0,
@@ -1435,6 +1319,137 @@
           null,
           null,
           null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/jobs/send_emails_job.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/mailers/application_mailer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/mailers/user_mailer.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/address.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/admin_user.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/application_record.rb": {
+        "lines": [
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/cart.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/category.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/line_items_product.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/order.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           null,
           0
         ],
@@ -1456,8 +1471,82 @@
         ],
         "branches": {
         }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/product.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/review.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/user.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/rails-17/Desktop/Akash/Ecommerce/app/models/wish_list.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
       }
     },
-    "timestamp": 1696589849
+    "timestamp": 1696829233
   }
 }
