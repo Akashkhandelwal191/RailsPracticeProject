@@ -121,9 +121,14 @@ gem 'wkhtmltopdf-binary'
 #Adding Stipe Payment Gateway Gem
 gem 'stripe'
 
-#Added Faker For Dummy Data
-gem 'faker'
 
 gem 'sidekiq'
 gem "sidekiq-cron" 
 
+#Added Chart Kick Gem 
+gem "chartkick"
+
+# Use CoffeeScript for .coffee assets and views
+gem 'coffee-rails', '~> 4.2'
+
+gem "groupdate"

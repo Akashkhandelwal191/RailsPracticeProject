@@ -15,7 +15,6 @@ class User < ApplicationRecord
   has_one :wish_list, dependent: :destroy
   has_one :cart,dependent: :destroy
   validates :first_name, :last_name, presence: true
-  # validates :username, uniqueness: { case_sensitive: false}
   validates_uniqueness_of :username , case_sensitive: false 
   after_create :welcome_send
   before_validation :generate_username, on: :create

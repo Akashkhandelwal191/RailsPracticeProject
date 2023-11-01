@@ -31,7 +31,7 @@ class ReviewsController < InheritedResources::Base
 
 
   def review_params
-    params.require(:review).permit(:description, :rating, :user_id, :product_id)
+    params.require(:review).permit(:description, :rating, :user_id, :product_id, :video_clip, review_images:[])
   end
 
 end

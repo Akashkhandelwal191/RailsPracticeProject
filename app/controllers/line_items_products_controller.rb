@@ -12,6 +12,7 @@ class LineItemsProductsController < ApplicationController
         	updated_total_price = updated_quantity * line_item_product.product.product_price
             updated_discounted_price = updated_total_price - (updated_total_price * (line_item_product.product.offer) / 100)  
             current_user.cart.update(total_price:(current_user.cart.total_price - line_item_product.discounted_price + updated_discounted_price),total_amount:(current_user.cart.total_amount - line_item_product.discounted_price + updated_discounted_price))
+            calc_discount
             line_item_product.update(quantity:updated_quantity,total_price:updated_total_price,discounted_price:updated_discounted_price)
             redirect_to carts_path, notice:"You have increased the quantity to #{updated_quantity}"
         else
@@ -28,6 +29,7 @@ class LineItemsProductsController < ApplicationController
     	   updated_total_price = updated_quantity * line_item_product.product.product_price  
            updated_discounted_price = updated_total_price - (updated_total_price * (line_item_product.product.offer) / 100)
            current_user.cart.update(total_price:(current_user.cart.total_price - line_item_product.discounted_price + updated_discounted_price),total_amount:(current_user.cart.total_amount - line_item_product.discounted_price + updated_discounted_price))
+           calc_discount
     	   line_item_product.update(quantity:updated_quantity,total_price:updated_total_price,discounted_price:updated_discounted_price)
     	   redirect_to carts_path, notice:"You have decreased the quantity to #{updated_quantity}"
     	 else

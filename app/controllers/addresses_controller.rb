@@ -23,7 +23,6 @@ class AddressesController < ApplicationController
   def destroy
     @address = Address.find_by_id(params[:id])
     @address.destroy
-
     redirect_to '/homes/show', notice: 'Address was successfully removed.'
   end
 

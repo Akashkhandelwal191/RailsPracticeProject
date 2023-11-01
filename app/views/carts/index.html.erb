@@ -80,11 +80,16 @@
              </div>
              <div class="d-flex justify-content-between">
                 <h6>Discount</h6>
-                <h6>-₹2000</h6>
+                <%  val = calculatediscount(current_user.cart.total_price) %>
+                <% if val.class == String %>
+                  <p style="color:red"><%= val %></p>
+                <%else%>
+                  <h6 style="color:green">- <%= val %></h6>
+                <%end%>
              </div>
              <div class="d-flex justify-content-between">
                 <h6>Delivery Charge</h6>
-                <h6>₹200</h6>
+                <h6>+ ₹200</h6>
              </div>
              <hr/>
              <div class="d-flex justify-content-between">

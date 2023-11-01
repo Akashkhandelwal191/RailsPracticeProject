@@ -84,6 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_060614) do
     t.datetime "updated_at", null: false
     t.float "total_price"
     t.float "total_amount"
+    t.boolean "is_discount_applied", default: false
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 

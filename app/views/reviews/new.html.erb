@@ -11,6 +11,16 @@
   <%= form.label :rating,class:"form-label" %>
   <%= form.number_field :rating,in:1..5,class:"form-control",placeholder:"Enter range between 1 to 5" %>
   </div>
+
+  <div class="mt-2">
+    <%= form.label :review_images,class:"form-label" %>
+    <%= form.file_field :review_images,multiple:true,class:"form-control"%>
+  </div>
+
+  <div class="mt-2">
+     <%= form.label :upload_product_video,class:"form-label" %>
+     <%= form.file_field :video_clip, class:"form-control" %>
+  </div>
   
   <div class="mt-2">
   <%= form.submit 'Submit Review',class:"btn btn-success" %>

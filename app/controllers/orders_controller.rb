@@ -17,8 +17,6 @@ class OrdersController < InheritedResources::Base
     current_user.cart.line_items_products.each do |lineitem|
        @make_order.line_items_products.create(quantity:lineitem.quantity,total_price:lineitem.total_price,discounted_price:lineitem.discounted_price,product_id:lineitem.product_id)
     end
-
-    # redirect_to buildorder_path(params[:id])
   end
   
 

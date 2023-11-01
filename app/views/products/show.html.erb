@@ -69,6 +69,21 @@
              &nbsp;
              <span style="font-family: monospace; font-weight:bold"><%= calculate_rating(review.rating) %></span>
              <h6 class="mt-2" style="font-family: italic;"><%= review.description %></h6>
+             <% if review.review_images.present? %>
+                <div style="display: flex;">
+                <% review.review_images.each do |img| %>
+                    <div class="p-2" style="max-width: 200px;">
+                     <%= image_tag img,class:"img-fluid"%>
+                    </div>
+                <%end%>
+               </div>
+             <%end%>
+
+             <% if review.video_clip.present? %>
+                 <div class="" style="">
+                   <%= video_tag url_for(review.video_clip), size:"240x220", controls: true %>
+                 </div>
+             <%end%>
             <p style="font-family: italic; font-weight: bolder;">By <%= review.user.first_name %> <%= review.user.last_name %><small style="font-weight: lighter;"> (<%= time_ago_in_words(review.created_at) %>)</small></p>
             </div>
           <%end%>
